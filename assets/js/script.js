@@ -6,6 +6,8 @@ const FILTRO_PADRAO = Object.freeze({
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
+  const shell = document.querySelector("#catalogo-shell");
+  const sidebar = document.querySelector("#catalogo-sidebar");
   const grid = document.querySelector("#grid-produtos");
   const filtros = document.querySelector("#catalogo-filtros");
   const vazio = document.querySelector("#produtos-vazio");
@@ -16,8 +18,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  let filtroAtivo = obterFiltroInicial(filtros);
+
+  sincronizarFiltrosAtivos(filtros, filtroAtivo);
+  prepararImagensProduto(grid);
+  aplicarFiltro(grid, filtroAtivo, vazio, labelAtiva, contadorAtivo);
+
   const controleSidebar = configurarSidebarLayout({
-    shell: document.querySelector("#catalogo-shell"),
+    shell,
+    sidebar,
     backdrop: document.querySelector("#catalogo-sidebar-backdrop"),
     mobileTrigger: document.querySelector("#sidebar-mobile-trigger"),
     mobileClose: document.querySelector("#sidebar-mobile-close"),
@@ -25,17 +34,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     railTrigger: document.querySelector("#sidebar-rail-button")
   });
 
-  let filtroAtivo = { ...FILTRO_PADRAO };
+  shell?.classList.add("is-ui-ready");
 
   configurarFiltros(filtros, (novoFiltro) => {
     filtroAtivo = novoFiltro;
     aplicarFiltro(grid, filtroAtivo, vazio, labelAtiva, contadorAtivo);
     controleSidebar.fecharMobile();
   });
-
-  sincronizarFiltrosAtivos(filtros, filtroAtivo);
-  prepararImagensProduto(grid);
-  aplicarFiltro(grid, filtroAtivo, vazio, labelAtiva, contadorAtivo);
 
   const source = grid.dataset.produtosSrc;
 
@@ -129,6 +134,18 @@ function configurarFiltros(container, onChange) {
       onChange(filtro);
     });
   });
+}
+
+function obterFiltroInicial(container) {
+  if (!container) {
+    return { ...FILTRO_PADRAO };
+  }
+
+  const elementoAtivo =
+    container.querySelector("[data-filter-category][aria-current='true']") ||
+    container.querySelector("[data-filter-category].is-active");
+
+  return elementoAtivo ? obterFiltroDoElemento(elementoAtivo) : { ...FILTRO_PADRAO };
 }
 
 function sincronizarFiltrosAtivos(container, filtroAtivo) {
@@ -294,6 +311,7 @@ function prepararImagensProduto(container) {
 function configurarSidebarLayout(elementos) {
   const {
     shell,
+    sidebar,
     backdrop,
     mobileTrigger,
     mobileClose,
@@ -309,7 +327,7 @@ function configurarSidebarLayout(elementos) {
 
   const mediaDesktop = window.matchMedia("(min-width: 901px)");
   const estado = {
-    colapsada: mediaDesktop.matches && window.innerWidth < 1220,
+    colapsada: shell.classList.contains("is-sidebar-collapsed"),
     mobileAberta: false
   };
 
@@ -319,6 +337,10 @@ function configurarSidebarLayout(elementos) {
     shell.classList.toggle("is-sidebar-collapsed", desktopAtivo && estado.colapsada);
     shell.classList.toggle("is-mobile-sidebar-open", !desktopAtivo && estado.mobileAberta);
     document.body.classList.toggle("is-mobile-sidebar-open", !desktopAtivo && estado.mobileAberta);
+
+    if (sidebar) {
+      sidebar.setAttribute("aria-hidden", String(!desktopAtivo && !estado.mobileAberta));
+    }
 
     if (backdrop) {
       backdrop.hidden = desktopAtivo || !estado.mobileAberta;

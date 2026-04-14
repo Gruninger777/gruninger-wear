@@ -83,6 +83,16 @@ header p {
   grid-template-columns: var(--sidebar-collapsed-width) minmax(0, 1fr);
 }
 
+.catalogo-shell:not(.is-ui-ready) .catalogo-sidebar-surface,
+.catalogo-shell:not(.is-ui-ready) .catalogo-sidebar-rail-button,
+.catalogo-shell:not(.is-ui-ready) .catalogo-sidebar-toggle,
+.catalogo-shell:not(.is-ui-ready) .catalogo-sidebar-close,
+.catalogo-shell:not(.is-ui-ready) .catalogo-mobile-trigger,
+.catalogo-shell:not(.is-ui-ready) .catalogo-nav-item,
+.catalogo-shell:not(.is-ui-ready) .catalogo-nav-subitem {
+  transition: none !important;
+}
+
 .catalogo-sidebar {
   position: relative;
   min-width: 0;
@@ -781,6 +791,7 @@ footer {
     width: min(88vw, 360px);
     z-index: 30;
     pointer-events: none;
+    visibility: hidden;
   }
 
   .catalogo-sidebar-surface {
@@ -790,18 +801,21 @@ footer {
     border-radius: 0 24px 24px 0;
     padding: 22px 18px 18px;
     transform: translateX(-104%);
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
     pointer-events: auto;
     overflow-y: auto;
   }
 
   .catalogo-shell.is-mobile-sidebar-open .catalogo-sidebar {
     pointer-events: auto;
+    visibility: visible;
   }
 
   .catalogo-shell.is-mobile-sidebar-open .catalogo-sidebar-surface {
     transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
   }
 
   .catalogo-sidebar-rail-button,
