@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Catálogo oficial da Grüninger Wear.">
-  <title>Catálogo | Grüninger Wear</title>
+  <meta name="description" content="Cat&aacute;logo oficial da Gr&uuml;ninger Wear.">
+  <title>Cat&aacute;logo | Gr&uuml;ninger Wear</title>
   <link rel="icon" type="image/png" href="assets/logo/favicon.png">
   <link rel="shortcut icon" href="assets/logo/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/logo/favicon.png">
@@ -14,195 +14,283 @@
 </head>
 <body>
   <header>
-    <img src="assets/logo/logo.png" alt="Grüninger Wear Logo">
+    <img src="assets/logo/logo.png" alt="Gr&uuml;ninger Wear Logo">
     <p>Estilo, identidade e atitude</p>
   </header>
 
-  <main class="container">
+  <main class="container container--catalogo">
     <section class="topo-loja">
-      <h1>Catálogo Oficial</h1>
+      <h1>Cat&aacute;logo Oficial</h1>
     </section>
 
-    <section class="filtros-catalogo" aria-label="Filtrar produtos por categoria">
-      <p class="filtros-titulo">Navegue por estilo</p>
-      <div class="filtros-lista" id="filtros-catalogo" role="toolbar" aria-label="Categorias do catálogo">
-        <button class="filtro-botao is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
-        <button class="filtro-botao" type="button" data-filter="street" aria-pressed="false">Street</button>
-        <button class="filtro-botao" type="button" data-filter="oversized" aria-pressed="false">Oversized</button>
-        <button class="filtro-botao" type="button" data-filter="cristas" aria-pressed="false">Cristãs</button>
-        <button class="filtro-botao" type="button" data-filter="polos" aria-pressed="false">Polos</button>
-        <button class="filtro-botao" type="button" data-filter="texturizadas" aria-pressed="false">Texturizadas</button>
-        <button class="filtro-botao" type="button" data-filter="infantis" aria-pressed="false">Infantis</button>
+    <section class="catalogo-shell" id="catalogo-shell" aria-label="Cat&aacute;logo de produtos">
+      <aside class="catalogo-sidebar" id="catalogo-sidebar" aria-label="Categorias do cat&aacute;logo">
+        <button class="catalogo-sidebar-rail-button" id="sidebar-rail-button" type="button" aria-controls="catalogo-sidebar" aria-expanded="false">
+          Categorias
+        </button>
+
+        <div class="catalogo-sidebar-surface">
+          <div class="catalogo-sidebar-header">
+            <div class="catalogo-sidebar-heading">
+              <p class="catalogo-sidebar-kicker">Navega&ccedil;&atilde;o</p>
+              <h2>Categorias</h2>
+            </div>
+
+            <div class="catalogo-sidebar-actions">
+              <button class="catalogo-sidebar-toggle" id="sidebar-collapse" type="button" aria-controls="catalogo-shell" aria-expanded="true">
+                Recolher
+              </button>
+              <button class="catalogo-sidebar-close" id="sidebar-mobile-close" type="button" aria-controls="catalogo-sidebar" aria-expanded="false">
+                Fechar
+              </button>
+            </div>
+          </div>
+
+          <nav class="catalogo-nav" id="catalogo-filtros" aria-label="Categorias e subcategorias">
+            <section class="catalogo-nav-section is-section-active" data-category-root="camisas" aria-label="Camisas">
+              <div class="catalogo-nav-section-header">
+                <div>
+                  <p class="catalogo-nav-section-kicker">Cole&ccedil;&atilde;o ativa</p>
+                  <h3 class="catalogo-nav-section-title">Camisas</h3>
+                </div>
+                <span class="catalogo-nav-section-tag">Dispon&iacute;vel</span>
+              </div>
+
+              <div class="catalogo-nav-list">
+                <button class="catalogo-nav-item is-active" type="button" data-filter-category="camisas" data-filter-label="Camisas / Todas" aria-current="true">
+                  Todas
+                </button>
+                <button class="catalogo-nav-item" type="button" data-filter-category="camisas" data-filter-subcategory="street" data-filter-label="Camisas / Street" aria-current="false">
+                  Street
+                </button>
+                <button class="catalogo-nav-item" type="button" data-filter-category="camisas" data-filter-subcategory="oversized" data-filter-label="Camisas / Oversized" aria-current="false">
+                  Oversized
+                </button>
+
+                <div class="catalogo-nav-branch" data-subcategory-root="cristas">
+                  <button class="catalogo-nav-item catalogo-nav-item--branch" type="button" data-filter-category="camisas" data-filter-subcategory="cristas" data-filter-label="Camisas / Crist&atilde;s" aria-current="false">
+                    Crist&atilde;s
+                  </button>
+
+                  <div class="catalogo-nav-sublist" aria-label="Subcategorias Crist&atilde;s">
+                    <button class="catalogo-nav-subitem" type="button" data-filter-category="camisas" data-filter-subcategory="cristas" data-filter-label="Camisas / Crist&atilde;s / Todas" aria-current="false">
+                      Todas
+                    </button>
+                    <button class="catalogo-nav-subitem" type="button" data-filter-category="camisas" data-filter-subcategory="cristas" data-filter-genero="feminina" data-filter-label="Camisas / Crist&atilde;s / Femininas" aria-current="false">
+                      Femininas
+                    </button>
+                    <button class="catalogo-nav-subitem" type="button" data-filter-category="camisas" data-filter-subcategory="cristas" data-filter-genero="unissex" data-filter-label="Camisas / Crist&atilde;s / Unissex" aria-current="false">
+                      Unissex
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="catalogo-nav-section catalogo-nav-section--future" data-category-root="feminino" aria-label="Feminino">
+              <div class="catalogo-nav-section-header">
+                <div>
+                  <p class="catalogo-nav-section-kicker">Estrutura futura</p>
+                  <h3 class="catalogo-nav-section-title">Feminino</h3>
+                </div>
+                <span class="catalogo-nav-section-tag">Em breve</span>
+              </div>
+
+              <div class="catalogo-nav-list">
+                <div class="catalogo-nav-item catalogo-nav-item--disabled" aria-disabled="true">Vestidos</div>
+                <div class="catalogo-nav-item catalogo-nav-item--disabled" aria-disabled="true">Blusas</div>
+                <div class="catalogo-nav-item catalogo-nav-item--disabled" aria-disabled="true">Saias</div>
+                <div class="catalogo-nav-item catalogo-nav-item--disabled" aria-disabled="true">Shorts</div>
+              </div>
+            </section>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="catalogo-main">
+        <div class="catalogo-toolbar">
+          <button class="catalogo-mobile-trigger" id="sidebar-mobile-trigger" type="button" aria-controls="catalogo-sidebar" aria-expanded="false">
+            Categorias
+          </button>
+
+          <div class="catalogo-active-panel" aria-live="polite">
+            <p class="catalogo-active-kicker">Exibindo</p>
+            <p class="catalogo-active-label" id="catalogo-active-label">Camisas / Todas</p>
+            <p class="catalogo-active-count" id="catalogo-active-count">0 produtos</p>
+          </div>
+        </div>
+
+        <section class="grid-produtos" id="grid-produtos" data-produtos-src="data/produtos.json" aria-live="polite">
+          <article class="produto produto-linkavel" data-produto="fallback" data-category="camisas" data-subcategory="street">
+            <a class="produto-card-link" href="produto.html?id=dragon-street" aria-label="Ver detalhes de Camiseta Dragon Kanji Street"></a>
+            <div class="produto-media">
+              <img
+                class="produto-imagem produto-imagem--verso"
+                src="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg"
+                data-image-primary="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg"
+                data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg"
+                alt="Camiseta Dragon Kanji Street preta"
+                loading="eager"
+              >
+              <img
+                class="produto-imagem produto-imagem--frente"
+                src="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg"
+                data-image-primary="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg"
+                data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg"
+                alt=""
+                loading="eager"
+                aria-hidden="true"
+              >
+            </div>
+            <div class="info">
+              <h2>Camiseta Dragon Kanji Street</h2>
+              <p class="preco">R$ 69,90</p>
+              <p class="destaque-produto">Estampa premium</p>
+              <div class="detalhes">Tamanhos: P, M, G, GG</div>
+              <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Camiseta%20Dragon%20Kanji%20Street%20na%20cor%20preta.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
+                Comprar no WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <article class="produto produto-linkavel" data-produto="fallback" data-category="camisas" data-subcategory="street">
+            <a class="produto-card-link" href="produto.html?id=dragon-minimal" aria-label="Ver detalhes de Camiseta Dragon Minimal"></a>
+            <div class="produto-media">
+              <img
+                class="produto-imagem produto-imagem--verso"
+                src="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg"
+                data-image-primary="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg"
+                data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg"
+                alt="Camiseta Dragon Minimal branca"
+                loading="eager"
+              >
+              <img
+                class="produto-imagem produto-imagem--frente"
+                src="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg"
+                data-image-primary="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg"
+                data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg"
+                alt=""
+                loading="eager"
+                aria-hidden="true"
+              >
+            </div>
+            <div class="info">
+              <h2>Camiseta Dragon Minimal</h2>
+              <p class="preco">R$ 69,90</p>
+              <p class="destaque-produto">Estilo minimalista premium</p>
+              <div class="detalhes">Tamanhos: P, M, G, GG</div>
+              <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Camiseta%20Dragon%20Minimal.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
+                Comprar no WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <article class="produto produto-linkavel" data-produto="fallback" data-category="camisas" data-subcategory="street">
+            <a class="produto-card-link" href="produto.html?id=dual-mask-street" aria-label="Ver detalhes de Camiseta Dual Mask Street"></a>
+            <div class="produto-media">
+              <img
+                class="produto-imagem produto-imagem--verso"
+                src="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg"
+                data-image-primary="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg"
+                data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg"
+                alt="Camiseta Dual Mask Street bege"
+                loading="eager"
+              >
+              <img
+                class="produto-imagem produto-imagem--frente"
+                src="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg"
+                data-image-primary="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg"
+                data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg"
+                alt=""
+                loading="eager"
+                aria-hidden="true"
+              >
+            </div>
+            <div class="info">
+              <h2>Camiseta Dual Mask Street</h2>
+              <p class="preco">R$ 69,90</p>
+              <p class="destaque-produto">Estilo art&iacute;stico e exclusivo</p>
+              <div class="detalhes">Tamanhos: P, M, G, GG</div>
+              <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Camiseta%20Dual%20Mask%20Street.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
+                Comprar no WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <article class="produto produto-linkavel" data-produto="fallback" data-category="camisas" data-subcategory="street">
+            <a class="produto-card-link" href="produto.html?id=smile-street" aria-label="Ver detalhes de Camiseta Smile Street"></a>
+            <div class="produto-media">
+              <img
+                class="produto-imagem produto-imagem--verso"
+                src="assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg"
+                data-image-primary="assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg"
+                data-image-secondary="assets/img/produtos/camisas/street/camisas-street-smile-preta-frente.jpg"
+                alt="Camiseta Smile Street preta"
+                loading="eager"
+              >
+              <img
+                class="produto-imagem produto-imagem--frente"
+                src="assets/img/produtos/camisas/street/camisas-street-smile-preta-frente.jpg"
+                data-image-primary="assets/img/produtos/camisas/street/camisas-street-smile-preta-frente.jpg"
+                data-image-secondary="assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg"
+                alt=""
+                loading="eager"
+                aria-hidden="true"
+              >
+            </div>
+            <div class="info">
+              <h2>Camiseta Smile Street</h2>
+              <p class="preco">R$ 69,90</p>
+              <p class="destaque-produto">Estilo leve e moderno</p>
+              <div class="detalhes">Tamanhos: P, M, G, GG</div>
+              <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Camiseta%20Smile%20Street.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
+                Comprar no WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <article class="produto produto-linkavel" data-produto="fallback" data-category="camisas" data-subcategory="cristas" data-genero="unissex">
+            <a class="produto-card-link" href="produto.html?id=fe-proposito-street" aria-label="Ver detalhes de Camiseta F&eacute; &amp; Prop&oacute;sito Street"></a>
+            <div class="produto-media">
+              <img
+                class="produto-imagem produto-imagem--verso"
+                src="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
+                data-image-primary="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
+                data-image-secondary="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg"
+                alt="Camiseta F&eacute; &amp; Prop&oacute;sito Street preta"
+                loading="eager"
+              >
+              <img
+                class="produto-imagem produto-imagem--frente"
+                src="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg"
+                data-image-primary="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg"
+                data-image-secondary="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
+                alt=""
+                loading="eager"
+                aria-hidden="true"
+              >
+            </div>
+            <div class="info">
+              <h2>Camiseta F&eacute; &amp; Prop&oacute;sito Street</h2>
+              <p class="preco">R$ 69,90</p>
+              <p class="destaque-produto">Mensagem forte e inspiradora</p>
+              <div class="detalhes">Tamanhos: P, M, G, GG</div>
+              <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Camiseta%20F%C3%A9%20%26%20Prop%C3%B3sito%20Street.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
+                Comprar no WhatsApp
+              </a>
+            </div>
+          </article>
+        </section>
+
+        <p class="produtos-vazio" id="produtos-vazio" hidden>Nenhum produto encontrado nesta categoria.</p>
       </div>
     </section>
-
-    <section class="grid-produtos" id="grid-produtos" data-produtos-src="data/produtos.json" aria-live="polite">
-      <article class="produto produto-linkavel" data-produto="fallback" data-filter-key="street">
-        <a class="produto-card-link" href="produto.html?id=dragon-street" aria-label="Ver detalhes de Camiseta Dragon Kanji Street"></a>
-        <div class="produto-media">
-          <img
-            class="produto-imagem produto-imagem--verso"
-            src="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg"
-            data-image-primary="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg"
-            data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg"
-            alt="Camiseta Dragon Kanji Street preta"
-            loading="eager"
-          >
-          <img
-            class="produto-imagem produto-imagem--frente"
-            src="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg"
-            data-image-primary="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg"
-            data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg"
-            alt=""
-            loading="eager"
-            aria-hidden="true"
-          >
-        </div>
-        <div class="info">
-          <h2>Camiseta Dragon Kanji Street</h2>
-          <p class="preco">R$ 69,90</p>
-          <p class="destaque-produto">Estampa premium</p>
-          <div class="detalhes">Tamanhos: P, M, G, GG</div>
-          <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Camiseta%20Dragon%20Kanji%20Street%20na%20cor%20preta.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
-            Comprar no WhatsApp
-          </a>
-        </div>
-      </article>
-
-      <article class="produto produto-linkavel" data-produto="fallback" data-filter-key="street">
-        <a class="produto-card-link" href="produto.html?id=dragon-minimal" aria-label="Ver detalhes de Camiseta Dragon Minimal"></a>
-        <div class="produto-media">
-          <img
-            class="produto-imagem produto-imagem--verso"
-            src="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg"
-            data-image-primary="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg"
-            data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg"
-            alt="Camiseta Dragon Minimal branca"
-            loading="eager"
-          >
-          <img
-            class="produto-imagem produto-imagem--frente"
-            src="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg"
-            data-image-primary="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg"
-            data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg"
-            alt=""
-            loading="eager"
-            aria-hidden="true"
-          >
-        </div>
-        <div class="info">
-          <h2>Camiseta Dragon Minimal</h2>
-          <p class="preco">R$ 69,90</p>
-          <p class="destaque-produto">Estilo minimalista premium</p>
-          <div class="detalhes">Tamanhos: P, M, G, GG</div>
-          <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Camiseta%20Dragon%20Minimal.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
-            Comprar no WhatsApp
-          </a>
-        </div>
-      </article>
-
-      <article class="produto produto-linkavel" data-produto="fallback" data-filter-key="street">
-        <a class="produto-card-link" href="produto.html?id=dual-mask-street" aria-label="Ver detalhes de Camiseta Dual Mask Street"></a>
-        <div class="produto-media">
-          <img
-            class="produto-imagem produto-imagem--verso"
-            src="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg"
-            data-image-primary="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg"
-            data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg"
-            alt="Camiseta Dual Mask Street bege"
-            loading="eager"
-          >
-          <img
-            class="produto-imagem produto-imagem--frente"
-            src="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg"
-            data-image-primary="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg"
-            data-image-secondary="assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg"
-            alt=""
-            loading="eager"
-            aria-hidden="true"
-          >
-        </div>
-        <div class="info">
-          <h2>Camiseta Dual Mask Street</h2>
-          <p class="preco">R$ 69,90</p>
-          <p class="destaque-produto">Estilo artístico e exclusivo</p>
-          <div class="detalhes">Tamanhos: P, M, G, GG</div>
-          <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Camiseta%20Dual%20Mask%20Street.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
-            Comprar no WhatsApp
-          </a>
-        </div>
-      </article>
-
-      <article class="produto produto-linkavel" data-produto="fallback" data-filter-key="street">
-        <a class="produto-card-link" href="produto.html?id=smile-street" aria-label="Ver detalhes de Camiseta Smile Street"></a>
-        <div class="produto-media">
-          <img
-            class="produto-imagem produto-imagem--verso"
-            src="assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg"
-            data-image-primary="assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg"
-            data-image-secondary="assets/img/produtos/camisas/street/camisas-street-smile-preta-frente.jpg"
-            alt="Camiseta Smile Street preta"
-            loading="eager"
-          >
-          <img
-            class="produto-imagem produto-imagem--frente"
-            src="assets/img/produtos/camisas/street/camisas-street-smile-preta-frente.jpg"
-            data-image-primary="assets/img/produtos/camisas/street/camisas-street-smile-preta-frente.jpg"
-            data-image-secondary="assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg"
-            alt=""
-            loading="eager"
-            aria-hidden="true"
-          >
-        </div>
-        <div class="info">
-          <h2>Camiseta Smile Street</h2>
-          <p class="preco">R$ 69,90</p>
-          <p class="destaque-produto">Estilo leve e moderno</p>
-          <div class="detalhes">Tamanhos: P, M, G, GG</div>
-          <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Camiseta%20Smile%20Street.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
-            Comprar no WhatsApp
-          </a>
-        </div>
-      </article>
-
-      <article class="produto produto-linkavel" data-produto="fallback" data-filter-key="cristas">
-        <a class="produto-card-link" href="produto.html?id=fe-proposito-street" aria-label="Ver detalhes de Camiseta Fé &amp; Propósito Street"></a>
-        <div class="produto-media">
-          <img
-            class="produto-imagem produto-imagem--verso"
-            src="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
-            data-image-primary="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
-            data-image-secondary="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg"
-            alt="Camiseta Fé &amp; Propósito Street preta"
-            loading="eager"
-          >
-          <img
-            class="produto-imagem produto-imagem--frente"
-            src="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg"
-            data-image-primary="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg"
-            data-image-secondary="assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
-            alt=""
-            loading="eager"
-            aria-hidden="true"
-          >
-        </div>
-        <div class="info">
-          <h2>Camiseta Fé &amp; Propósito Street</h2>
-          <p class="preco">R$ 69,90</p>
-          <p class="destaque-produto">Mensagem forte e inspiradora</p>
-          <div class="detalhes">Tamanhos: P, M, G, GG</div>
-          <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Camiseta%20F%C3%A9%20%26%20Prop%C3%B3sito%20Street.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
-            Comprar no WhatsApp
-          </a>
-        </div>
-      </article>
-    </section>
-
-    <p class="produtos-vazio" id="produtos-vazio" hidden>Nenhum produto encontrado nesta categoria.</p>
   </main>
 
+  <div class="catalogo-sidebar-backdrop" id="catalogo-sidebar-backdrop" hidden></div>
+
   <footer>
-    <p>&copy; 2026 Grüninger Wear</p>
+    <p>&copy; 2026 Gr&uuml;ninger Wear</p>
   </footer>
 </body>
 </html>

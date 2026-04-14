@@ -43,6 +43,7 @@
       precoTexto: formatarPreco(produto.preco ?? "Consulte"),
       categoria: produto.categoria || "",
       subcategoria: produto.subcategoria || "",
+      genero: produto.genero || "",
       destaque: produto.destaque || "Qualidade premium",
       detalhes: produto.detalhes || "Consulte disponibilidade",
       descricao: produto.descricao || "Peça disponível no catálogo Grüninger Wear.",
