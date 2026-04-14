@@ -130,6 +130,8 @@ function aplicarFiltro(grid, filtroAtivo, vazio) {
     const mostrar = filtroAtivo === "todos" || filterKey === filtroAtivo;
 
     card.hidden = !mostrar;
+    card.style.display = mostrar ? "" : "none";
+    card.setAttribute("aria-hidden", String(!mostrar));
 
     if (mostrar) {
       visiveis += 1;
