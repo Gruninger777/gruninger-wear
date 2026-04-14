@@ -1,27 +1,38 @@
 [
   {
     "id": "dragon-street",
-    "nome": "Camiseta Dragon Street",
+    "nome": "Camiseta Dragon Kanji Street",
     "preco": 69.9,
     "categoria": "camisas",
     "subcategoria": "street",
     "destaque": "Estampa premium",
     "detalhes": "Tamanhos: P, M, G, GG",
-    "descricao": "Peça com visual street e presença gráfica marcante para compor a linha urbana da Grüninger Wear.",
-    "alt": "Camiseta Dragon Street",
+    "alt": "Camiseta Dragon Kanji Street preta",
     "variacoes": [
       {
         "cor": "preta",
         "hex": "#111111",
-        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-frente.jpg",
-        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-verso.jpg"
-      },
+        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg"
+      }
+    ]
+  },
+  {
+    "id": "dragon-minimal",
+    "nome": "Camiseta Dragon Minimal",
+    "preco": 69.9,
+    "categoria": "camisas",
+    "subcategoria": "street",
+    "destaque": "Estilo minimalista premium",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camiseta Dragon Minimal branca",
+    "mensagem": "Olá! Tenho interesse na Camiseta Dragon Minimal. Quais tamanhos estão disponíveis?",
+    "variacoes": [
       {
         "cor": "branca",
         "hex": "#f3f3f3",
-        "mensagem": "Olá! Tenho interesse na Camiseta Dragon Street branca. Quais tamanhos estão disponíveis?",
-        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dragon-branca-frente.jpg",
-        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-branca-verso.jpg"
+        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg"
       }
     ]
   },
