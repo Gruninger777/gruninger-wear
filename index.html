@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="assets/logo/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/logo/favicon.png">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/catalogo-utils.js"></script>
   <script defer src="assets/js/script.js"></script>
 </head>
 <body>
@@ -22,20 +23,46 @@
       <h1>Catálogo Oficial</h1>
     </section>
 
+    <section class="filtros-catalogo" aria-label="Filtrar produtos por categoria">
+      <p class="filtros-titulo">Navegue por estilo</p>
+      <div class="filtros-lista" id="filtros-catalogo" role="toolbar" aria-label="Categorias do catálogo">
+        <button class="filtro-botao is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="filtro-botao" type="button" data-filter="street" aria-pressed="false">Street</button>
+        <button class="filtro-botao" type="button" data-filter="oversized" aria-pressed="false">Oversized</button>
+        <button class="filtro-botao" type="button" data-filter="cristas" aria-pressed="false">Cristãs</button>
+        <button class="filtro-botao" type="button" data-filter="polos" aria-pressed="false">Polos</button>
+        <button class="filtro-botao" type="button" data-filter="texturizadas" aria-pressed="false">Texturizadas</button>
+        <button class="filtro-botao" type="button" data-filter="infantis" aria-pressed="false">Infantis</button>
+      </div>
+    </section>
+
     <section class="grid-produtos" id="grid-produtos" data-produtos-src="data/produtos.json" aria-live="polite">
-      <article class="produto" data-produto="fallback">
-        <img src="assets/img/produtos/camisetas/camiseta-modelo.svg" alt="Camiseta Essential Grüninger Wear">
+      <article
+        class="produto produto-linkavel"
+        data-produto="fallback"
+        data-produto-url="produto.html?id=camiseta-essential"
+        data-filter-key="camisetas"
+        tabindex="0"
+        role="link"
+        aria-label="Ver detalhes de Camiseta Essential"
+      >
+        <div class="produto-media">
+          <img class="produto-imagem produto-imagem--verso" src="assets/img/produtos/camisetas/camiseta-modelo.svg" alt="Camiseta Essential Grüninger Wear" loading="eager">
+          <img class="produto-imagem produto-imagem--frente" src="assets/img/produtos/camisetas/camiseta-modelo.svg" alt="" loading="eager" aria-hidden="true">
+        </div>
         <div class="info">
           <h2>Camiseta Essential</h2>
           <p class="preco">R$ 69,90</p>
           <p class="destaque-produto">Qualidade premium</p>
           <div class="detalhes">Tamanhos: P, M, G, GG</div>
-          <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Camiseta%20Essential.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
+          <a class="botao" href="https://wa.me/5517988090379?text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Camiseta%20Essential%20na%20cor%20grafite.%20Quais%20tamanhos%20est%C3%A3o%20dispon%C3%ADveis%3F" target="_blank" rel="noreferrer">
             Comprar no WhatsApp
           </a>
         </div>
       </article>
     </section>
+
+    <p class="produtos-vazio" id="produtos-vazio" hidden>Nenhum produto encontrado nesta categoria.</p>
   </main>
 
   <footer>

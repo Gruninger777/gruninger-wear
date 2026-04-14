@@ -2,25 +2,38 @@
   {
     "id": "camiseta-essential",
     "nome": "Camiseta Essential",
-    "preco": "R$ 69,90",
+    "preco": 69.9,
+    "categoria": "camisetas",
     "destaque": "Qualidade premium",
     "detalhes": "Tamanhos: P, M, G, GG",
-    "categoria": "camisetas",
-    "imagem": "assets/img/produtos/camisetas/camiseta-modelo.svg",
+    "descricao": "Peça de exemplo do catálogo com proposta minimalista e visual premium da Grüninger Wear.",
     "alt": "Camiseta Essential Grüninger Wear",
-    "mensagem": "Olá! Tenho interesse na peça Camiseta Essential. Quais tamanhos estão disponíveis?"
+    "variacoes": [
+      {
+        "cor": "grafite",
+        "hex": "#1d1d1d",
+        "imagem_frente": "assets/img/produtos/camisetas/camiseta-modelo.svg",
+        "imagem_verso": "assets/img/produtos/camisetas/camiseta-modelo.svg"
+      }
+    ]
   },
   {
-    "id": "camisas-street-dragon-preta",
+    "id": "dragon-street",
     "nome": "Camiseta Dragon Street",
-    "preco": "R$ 69,90",
-    "destaque": "Estampa premium",
-    "detalhes": "Tamanhos: P, M, G, GG",
+    "preco": 69.9,
     "categoria": "camisas",
     "subcategoria": "street",
-    "imagem": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-frente.jpg",
-    "imagemVerso": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-verso.jpg",
+    "destaque": "Estampa premium",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "descricao": "Peça com visual street e presença gráfica marcante para compor a linha urbana da Grüninger Wear.",
     "alt": "Camiseta Dragon Street preta",
-    "mensagem": "Olá! Tenho interesse na Camiseta Dragon Street. Quais tamanhos estão disponíveis?"
+    "variacoes": [
+      {
+        "cor": "preta",
+        "hex": "#111111",
+        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-verso.jpg"
+      }
+    ]
   }
 ]

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalhes do produto Grüninger Wear.">
+  <title>Produto | Grüninger Wear</title>
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="shortcut icon" href="assets/logo/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/logo/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/catalogo-utils.js"></script>
+  <script defer src="assets/js/produto.js"></script>
+</head>
+<body>
+  <header>
+    <img src="assets/logo/logo.png" alt="Grüninger Wear Logo">
+    <p>Estilo, identidade e atitude</p>
+  </header>
+
+  <main class="container">
+    <a class="voltar-catalogo" href="index.html">Voltar ao catálogo</a>
+
+    <section class="produto-detalhe" id="produto-detalhe" data-produtos-src="data/produtos.json">
+      <p class="produto-estado" id="produto-estado">Carregando produto...</p>
+
+      <div class="produto-detalhe-grid" id="produto-conteudo" hidden>
+        <div class="produto-galeria">
+          <div class="produto-visual-principal">
+            <img id="produto-imagem-principal" src="assets/img/produtos/camisetas/camiseta-modelo.svg" alt="">
+          </div>
+          <div class="produto-miniaturas" id="produto-miniaturas"></div>
+        </div>
+
+        <div class="produto-resumo">
+          <p class="produto-categoria" id="produto-categoria"></p>
+          <h1 class="produto-nome" id="produto-nome"></h1>
+          <p class="preco" id="produto-preco"></p>
+          <p class="destaque-produto" id="produto-destaque"></p>
+          <p class="produto-descricao" id="produto-descricao"></p>
+          <div class="detalhes" id="produto-detalhes"></div>
+          <p class="produto-cor-atual" id="produto-cor-atual"></p>
+
+          <section class="produto-variacoes" id="produto-variacoes" hidden>
+            <h2>Escolha a cor</h2>
+            <div class="produto-swatches" id="produto-swatches"></div>
+          </section>
+
+          <a class="botao" id="produto-whatsapp" href="#" target="_blank" rel="noreferrer">
+            Comprar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Grüninger Wear</p>
+  </footer>
+</body>
+</html>
