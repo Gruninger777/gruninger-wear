@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     aplicarFiltro(grid, filtroAtivo, vazio);
   });
 
-  ativarInteracoesProdutos(grid);
+  prepararImagensProduto(grid);
   aplicarFiltro(grid, filtroAtivo, vazio);
 
   const source = grid.dataset.produtosSrc;
@@ -32,10 +32,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     grid.innerHTML = produtos.map(criarCardProduto).join("");
-    ativarInteracoesProdutos(grid);
+    prepararImagensProduto(grid);
     aplicarFiltro(grid, filtroAtivo, vazio);
   } catch (error) {
     console.info("Catálogo usando fallback estático.", error);
+    prepararImagensProduto(grid);
     aplicarFiltro(grid, filtroAtivo, vazio);
   }
 });
@@ -43,29 +44,38 @@ document.addEventListener("DOMContentLoaded", async () => {
 function criarCardProduto(produto) {
   const utils = window.CatalogoUtils;
   const variacaoPadrao = produto.variacoes[0];
-  const imagemVerso = utils.escapeAttribute(variacaoPadrao.imagemVerso);
-  const imagemFrente = utils.escapeAttribute(variacaoPadrao.imagemFrente);
+  const imagemVerso = utils.escapeAttribute(utils.obterImagemPrincipal(variacaoPadrao));
+  const imagemFrente = utils.escapeAttribute(utils.obterImagemHover(variacaoPadrao));
   const nome = utils.escapeHtml(produto.nome);
   const preco = utils.escapeHtml(produto.precoTexto);
   const destaque = utils.escapeHtml(produto.destaque);
   const detalhes = utils.escapeHtml(produto.detalhes);
-  const alt = utils.escapeHtml(`${produto.nome} ${variacaoPadrao.corLabel}`.trim());
+  const alt = utils.escapeHtml(produto.alt || `${produto.nome} ${variacaoPadrao.corLabel}`.trim());
   const produtoUrl = utils.escapeAttribute(utils.criarUrlProduto(produto.id));
   const filtroKey = utils.escapeAttribute(mapearFiltroProduto(produto));
   const mensagem = encodeURIComponent(utils.criarMensagemWhatsapp(produto, variacaoPadrao));
 
   return `
-    <article
-      class="produto produto-linkavel"
-      data-produto-url="${produtoUrl}"
-      data-filter-key="${filtroKey}"
-      tabindex="0"
-      role="link"
-      aria-label="Ver detalhes de ${nome}"
-    >
+    <article class="produto produto-linkavel" data-filter-key="${filtroKey}">
+      <a class="produto-card-link" href="${produtoUrl}" aria-label="Ver detalhes de ${nome}"></a>
       <div class="produto-media">
-        <img class="produto-imagem produto-imagem--verso" src="${imagemVerso}" alt="${alt}" loading="lazy">
-        <img class="produto-imagem produto-imagem--frente" src="${imagemFrente}" alt="" loading="lazy" aria-hidden="true">
+        <img
+          class="produto-imagem produto-imagem--verso"
+          src="${imagemVerso}"
+          data-image-primary="${imagemVerso}"
+          data-image-secondary="${imagemFrente}"
+          alt="${alt}"
+          loading="lazy"
+        >
+        <img
+          class="produto-imagem produto-imagem--frente"
+          src="${imagemFrente}"
+          data-image-primary="${imagemFrente}"
+          data-image-secondary="${imagemVerso}"
+          alt=""
+          loading="lazy"
+          aria-hidden="true"
+        >
       </div>
       <div class="info">
         <h2>${nome}</h2>
@@ -131,6 +141,17 @@ function aplicarFiltro(grid, filtroAtivo, vazio) {
   }
 }
 
+function prepararImagensProduto(container) {
+  const imagens = container.querySelectorAll(".produto-imagem");
+
+  imagens.forEach((imagem) => {
+    window.CatalogoUtils.registrarFallbackImagem(imagem, [
+      imagem.dataset.imagePrimary,
+      imagem.dataset.imageSecondary
+    ]);
+  });
+}
+
 function mapearFiltroProduto(produto) {
   const categoria = String(produto.categoria || "").toLowerCase();
   const subcategoria = String(produto.subcategoria || "").toLowerCase();
@@ -160,54 +181,4 @@ function mapearFiltroProduto(produto) {
   }
 
   return categoria;
-}
-
-function ativarInteracoesProdutos(container) {
-  const cards = container.querySelectorAll(".produto-linkavel");
-  const botoes = container.querySelectorAll(".botao");
-
-  cards.forEach((card) => {
-    if (card.dataset.boundCard === "true") {
-      return;
-    }
-
-    card.dataset.boundCard = "true";
-    card.addEventListener("click", aoClicarNoCard);
-    card.addEventListener("keydown", aoUsarTecladoNoCard);
-  });
-
-  botoes.forEach((botao) => {
-    if (botao.dataset.boundButton === "true") {
-      return;
-    }
-
-    botao.dataset.boundButton = "true";
-    botao.addEventListener("click", (event) => event.stopPropagation());
-  });
-}
-
-function aoClicarNoCard(event) {
-  if (event.target.closest(".botao")) {
-    return;
-  }
-
-  const url = event.currentTarget.dataset.produtoUrl;
-
-  if (url) {
-    window.location.href = url;
-  }
-}
-
-function aoUsarTecladoNoCard(event) {
-  if (event.key !== "Enter" && event.key !== " ") {
-    return;
-  }
-
-  event.preventDefault();
-
-  const url = event.currentTarget.dataset.produtoUrl;
-
-  if (url) {
-    window.location.href = url;
-  }
 }

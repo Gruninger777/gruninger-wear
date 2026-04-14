@@ -106,6 +106,49 @@
     return `Olá! Tenho interesse na peça ${nome}${cor}. Quais tamanhos estão disponíveis?`;
   }
 
+  function obterImagemPrincipal(variacao) {
+    return variacao.imagemVerso || variacao.imagemFrente || DEFAULT_IMAGE;
+  }
+
+  function obterImagemHover(variacao) {
+    return variacao.imagemFrente || variacao.imagemVerso || DEFAULT_IMAGE;
+  }
+
+  function registrarFallbackImagem(element, sources) {
+    if (!element) {
+      return;
+    }
+
+    const fila = [...new Set([...(sources || []), DEFAULT_IMAGE].filter(Boolean).map(String))];
+
+    if (!fila.length) {
+      return;
+    }
+
+    element.dataset.fallbackQueue = JSON.stringify(fila);
+    element.dataset.fallbackIndex = "0";
+
+    if (element.dataset.fallbackHandlerAttached === "true") {
+      return;
+    }
+
+    element.dataset.fallbackHandlerAttached = "true";
+    element.addEventListener("error", avancarFallbackImagem);
+  }
+
+  function avancarFallbackImagem(event) {
+    const element = event.currentTarget;
+    const fila = JSON.parse(element.dataset.fallbackQueue || "[]");
+    const proximoIndice = Number(element.dataset.fallbackIndex || "0") + 1;
+
+    if (proximoIndice >= fila.length) {
+      return;
+    }
+
+    element.dataset.fallbackIndex = String(proximoIndice);
+    element.src = fila[proximoIndice];
+  }
+
   function formatarPreco(preco) {
     if (typeof preco === "number") {
       return formatarMoeda(preco);
@@ -180,6 +223,9 @@
     carregarProdutos,
     normalizarProduto,
     criarMensagemWhatsapp,
+    obterImagemPrincipal,
+    obterImagemHover,
+    registrarFallbackImagem,
     formatarPreco,
     criarUrlProduto,
     encontrarProdutoPorId,

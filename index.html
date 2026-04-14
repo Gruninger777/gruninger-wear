@@ -37,18 +37,26 @@
     </section>
 
     <section class="grid-produtos" id="grid-produtos" data-produtos-src="data/produtos.json" aria-live="polite">
-      <article
-        class="produto produto-linkavel"
-        data-produto="fallback"
-        data-produto-url="produto.html?id=camiseta-essential"
-        data-filter-key="camisetas"
-        tabindex="0"
-        role="link"
-        aria-label="Ver detalhes de Camiseta Essential"
-      >
+      <article class="produto produto-linkavel" data-produto="fallback" data-filter-key="camisetas">
+        <a class="produto-card-link" href="produto.html?id=camiseta-essential" aria-label="Ver detalhes de Camiseta Essential"></a>
         <div class="produto-media">
-          <img class="produto-imagem produto-imagem--verso" src="assets/img/produtos/camisetas/camiseta-modelo.svg" alt="Camiseta Essential Grüninger Wear" loading="eager">
-          <img class="produto-imagem produto-imagem--frente" src="assets/img/produtos/camisetas/camiseta-modelo.svg" alt="" loading="eager" aria-hidden="true">
+          <img
+            class="produto-imagem produto-imagem--verso"
+            src="assets/img/produtos/camisetas/camiseta-modelo.svg"
+            data-image-primary="assets/img/produtos/camisetas/camiseta-modelo.svg"
+            data-image-secondary="assets/img/produtos/camisetas/camiseta-modelo.svg"
+            alt="Camiseta Essential Grüninger Wear"
+            loading="eager"
+          >
+          <img
+            class="produto-imagem produto-imagem--frente"
+            src="assets/img/produtos/camisetas/camiseta-modelo.svg"
+            data-image-primary="assets/img/produtos/camisetas/camiseta-modelo.svg"
+            data-image-secondary="assets/img/produtos/camisetas/camiseta-modelo.svg"
+            alt=""
+            loading="eager"
+            aria-hidden="true"
+          >
         </div>
         <div class="info">
           <h2>Camiseta Essential</h2>

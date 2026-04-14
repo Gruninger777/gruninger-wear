@@ -67,10 +67,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     function atualizarProduto() {
       const variacao = produto.variacoes[indiceVariacao];
-      const imagemAtual = vistaAtiva === "frente" ? variacao.imagemFrente : variacao.imagemVerso;
+      const imagemAtual =
+        vistaAtiva === "frente"
+          ? window.CatalogoUtils.obterImagemHover(variacao)
+          : window.CatalogoUtils.obterImagemPrincipal(variacao);
 
       imagemPrincipal.src = imagemAtual;
       imagemPrincipal.alt = `${produto.nome} ${variacao.corLabel} ${vistaAtiva}`.trim();
+      window.CatalogoUtils.registrarFallbackImagem(imagemPrincipal, [
+        window.CatalogoUtils.obterImagemPrincipal(variacao),
+        window.CatalogoUtils.obterImagemHover(variacao)
+      ]);
+
       corAtual.textContent = `Cor selecionada: ${variacao.corLabel}`;
       whatsapp.href = `https://wa.me/${window.CatalogoUtils.WHATSAPP_NUMBER}?text=${encodeURIComponent(
         window.CatalogoUtils.criarMensagemWhatsapp(produto, variacao)
@@ -82,8 +90,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     function renderizarMiniaturas(variacao) {
       const vistas = [
-        { id: "verso", label: "Verso", imagem: variacao.imagemVerso },
-        { id: "frente", label: "Frente", imagem: variacao.imagemFrente }
+        { id: "verso", label: "Verso", imagem: window.CatalogoUtils.obterImagemPrincipal(variacao), secundaria: window.CatalogoUtils.obterImagemHover(variacao) },
+        { id: "frente", label: "Frente", imagem: window.CatalogoUtils.obterImagemHover(variacao), secundaria: window.CatalogoUtils.obterImagemPrincipal(variacao) }
       ];
 
       miniaturas.innerHTML = vistas
@@ -95,9 +103,12 @@ document.addEventListener("DOMContentLoaded", async () => {
               data-view="${vista.id}"
               aria-pressed="${vistaAtiva === vista.id}"
             >
-              <img src="${window.CatalogoUtils.escapeAttribute(vista.imagem)}" alt="${window.CatalogoUtils.escapeHtml(
-                `${produto.nome} ${vista.label.toLowerCase()}`
-              )}">
+              <img
+                src="${window.CatalogoUtils.escapeAttribute(vista.imagem)}"
+                data-image-primary="${window.CatalogoUtils.escapeAttribute(vista.imagem)}"
+                data-image-secondary="${window.CatalogoUtils.escapeAttribute(vista.secundaria)}"
+                alt="${window.CatalogoUtils.escapeHtml(`${produto.nome} ${vista.label.toLowerCase()}`)}"
+              >
               <span>${window.CatalogoUtils.escapeHtml(vista.label)}</span>
             </button>
           `
@@ -109,6 +120,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           vistaAtiva = botao.dataset.view;
           atualizarProduto();
         });
+      });
+
+      miniaturas.querySelectorAll("img").forEach((imagem) => {
+        window.CatalogoUtils.registrarFallbackImagem(imagem, [
+          imagem.dataset.imagePrimary,
+          imagem.dataset.imageSecondary
+        ]);
       });
     }
 
