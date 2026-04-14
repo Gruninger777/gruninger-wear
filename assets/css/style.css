@@ -111,6 +111,7 @@ header p {
   background:
     linear-gradient(180deg, rgba(28, 28, 28, 0.96) 0%, rgba(16, 16, 16, 0.98) 100%);
   box-shadow: var(--panel-shadow);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
 }
@@ -139,7 +140,9 @@ header p {
   letter-spacing: 0.2em;
   line-height: 1.35;
   text-transform: uppercase;
-  word-break: break-word;
+  white-space: nowrap;
+  word-break: normal;
+  overflow: hidden;
   transition: border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
@@ -147,6 +150,12 @@ header p {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.catalogo-sidebar-rail-button-label {
+  display: inline-block;
+  transform: rotate(-90deg);
+  transform-origin: center;
 }
 
 .catalogo-sidebar-rail-button:hover {
@@ -766,6 +775,7 @@ header p {
   inset: 0;
   z-index: 24;
   background: rgba(0, 0, 0, 0.62);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 
@@ -838,6 +848,7 @@ footer {
     padding: 10px;
     border-radius: 22px;
     background: rgba(13, 13, 13, 0.84);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
   }
 

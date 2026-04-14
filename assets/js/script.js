@@ -325,14 +325,18 @@ function configurarSidebarLayout(elementos) {
     };
   }
 
-  const mediaDesktop = window.matchMedia("(min-width: 901px)");
+  const mediaDesktop =
+    typeof window.matchMedia === "function"
+      ? window.matchMedia("(min-width: 901px)")
+      : { matches: window.innerWidth >= 901 };
+  const viewportEhDesktop = () => window.innerWidth >= 901 || mediaDesktop.matches;
   const estado = {
     colapsada: shell.classList.contains("is-sidebar-collapsed"),
     mobileAberta: false
   };
 
   const sincronizarLayout = () => {
-    const desktopAtivo = mediaDesktop.matches;
+    const desktopAtivo = viewportEhDesktop();
 
     shell.classList.toggle("is-sidebar-collapsed", desktopAtivo && estado.colapsada);
     shell.classList.toggle("is-mobile-sidebar-open", !desktopAtivo && estado.mobileAberta);
@@ -373,8 +377,16 @@ function configurarSidebarLayout(elementos) {
     sincronizarLayout();
   };
 
+  const sincronizarViewport = () => {
+    if (viewportEhDesktop()) {
+      estado.mobileAberta = false;
+    }
+
+    sincronizarLayout();
+  };
+
   collapseTrigger?.addEventListener("click", () => {
-    if (!mediaDesktop.matches) {
+    if (!viewportEhDesktop()) {
       return;
     }
 
@@ -382,7 +394,7 @@ function configurarSidebarLayout(elementos) {
   });
 
   railTrigger?.addEventListener("click", () => {
-    if (!mediaDesktop.matches) {
+    if (!viewportEhDesktop()) {
       return;
     }
 
@@ -390,7 +402,7 @@ function configurarSidebarLayout(elementos) {
   });
 
   mobileTrigger?.addEventListener("click", () => {
-    if (mediaDesktop.matches) {
+    if (viewportEhDesktop()) {
       return;
     }
 
@@ -406,7 +418,7 @@ function configurarSidebarLayout(elementos) {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape" || mediaDesktop.matches || !estado.mobileAberta) {
+    if (event.key !== "Escape" || viewportEhDesktop() || !estado.mobileAberta) {
       return;
     }
 
@@ -420,6 +432,10 @@ function configurarSidebarLayout(elementos) {
 
     sincronizarLayout();
   };
+
+  window.addEventListener("resize", sincronizarViewport, { passive: true });
+  window.addEventListener("orientationchange", sincronizarViewport);
+  window.addEventListener("pageshow", sincronizarViewport);
 
   if (typeof mediaDesktop.addEventListener === "function") {
     mediaDesktop.addEventListener("change", reagirMudancaViewport);
