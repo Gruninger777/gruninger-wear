@@ -37,6 +37,25 @@
     ]
   },
   {
+    "id": "dual-mask-street",
+    "nome": "Camiseta Dual Mask Street",
+    "preco": 69.9,
+    "categoria": "camisas",
+    "subcategoria": "street",
+    "destaque": "Estilo artístico e exclusivo",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camiseta Dual Mask Street bege",
+    "mensagem": "Olá! Tenho interesse na Camiseta Dual Mask Street. Quais tamanhos estão disponíveis?",
+    "variacoes": [
+      {
+        "cor": "bege",
+        "hex": "#ccb79c",
+        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg"
+      }
+    ]
+  },
+  {
     "id": "smile-street",
     "nome": "Camiseta Smile Street",
     "preco": 69.9,
