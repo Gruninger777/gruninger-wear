@@ -1,23 +1,5 @@
 [
   {
-    "id": "camiseta-essential",
-    "nome": "Camiseta Essential",
-    "preco": 69.9,
-    "categoria": "camisetas",
-    "destaque": "Qualidade premium",
-    "detalhes": "Tamanhos: P, M, G, GG",
-    "descricao": "Peça de exemplo do catálogo com proposta minimalista e visual premium da Grüninger Wear.",
-    "alt": "Camiseta Essential Grüninger Wear",
-    "variacoes": [
-      {
-        "cor": "grafite",
-        "hex": "#1d1d1d",
-        "imagem_frente": "assets/img/produtos/camisetas/camiseta-modelo.svg",
-        "imagem_verso": "assets/img/produtos/camisetas/camiseta-modelo.svg"
-      }
-    ]
-  },
-  {
     "id": "dragon-street",
     "nome": "Camiseta Dragon Street",
     "preco": 69.9,
