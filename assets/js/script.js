@@ -41,10 +41,13 @@ async function carregarProdutos(grid) {
 function criarCardProduto(produto) {
   const nome = escapeHtml(produto.nome || "Produto");
   const preco = escapeHtml(produto.preco || "Consulte");
+  const destaque = escapeHtml(produto.destaque || "Qualidade premium");
   const detalhes = escapeHtml(produto.detalhes || "Consulte disponibilidade");
   const alt = escapeHtml(produto.alt || produto.nome || "Produto Grüninger Wear");
   const imagem = escapeAttribute(produto.imagem || DEFAULT_IMAGE);
-  const mensagem = encodeURIComponent(produto.mensagem || `Tenho interesse na ${produto.nome || "peça"}`);
+  const mensagem = encodeURIComponent(
+    produto.mensagem || `Olá! Tenho interesse na peça ${produto.nome || "peça"}. Quais tamanhos estão disponíveis?`
+  );
 
   return `
     <article class="produto">
@@ -52,9 +55,10 @@ function criarCardProduto(produto) {
       <div class="info">
         <h2>${nome}</h2>
         <p class="preco">${preco}</p>
+        <p class="destaque-produto">${destaque}</p>
         <div class="detalhes">${detalhes}</div>
         <a class="botao" href="https://wa.me/${WHATSAPP_NUMBER}?text=${mensagem}" target="_blank" rel="noreferrer">
-          Comprar
+          Comprar no WhatsApp
         </a>
       </div>
     </article>

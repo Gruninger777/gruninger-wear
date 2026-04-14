@@ -1,12 +1,13 @@
 [
   {
-    "id": "camiseta-modelo",
-    "nome": "Camiseta Modelo",
+    "id": "camiseta-essential",
+    "nome": "Camiseta Essential",
     "preco": "R$ 69,90",
+    "destaque": "Qualidade premium",
     "detalhes": "Tamanhos: P, M, G, GG",
     "categoria": "camisetas",
     "imagem": "assets/img/produtos/camisetas/camiseta-modelo.svg",
-    "alt": "Camiseta Modelo Grüninger Wear",
-    "mensagem": "Tenho interesse na Camiseta Modelo"
+    "alt": "Camiseta Essential Grüninger Wear",
+    "mensagem": "Olá! Tenho interesse na peça Camiseta Essential. Quais tamanhos estão disponíveis?"
   }
 ]
