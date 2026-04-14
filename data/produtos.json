@@ -73,5 +73,24 @@
         "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg"
       }
     ]
+  },
+  {
+    "id": "fe-proposito-street",
+    "nome": "Camiseta Fé & Propósito Street",
+    "preco": 69.9,
+    "categoria": "camisas",
+    "subcategoria": "cristas",
+    "destaque": "Mensagem forte e inspiradora",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camiseta Fé & Propósito Street preta",
+    "mensagem": "Olá! Tenho interesse na Camiseta Fé & Propósito Street. Quais tamanhos estão disponíveis?",
+    "variacoes": [
+      {
+        "cor": "preta",
+        "hex": "#111111",
+        "imagem_frente": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
+      }
+    ]
   }
 ]

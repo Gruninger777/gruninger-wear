@@ -166,6 +166,10 @@ function mapearFiltroProduto(produto) {
     return "cristas";
   }
 
+  if (categoria === "camisas" && subcategoria === "cristas") {
+    return "cristas";
+  }
+
   if (categoria === "polos") {
     return "polos";
   }
