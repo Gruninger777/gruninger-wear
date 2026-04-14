@@ -1,0 +1,12 @@
+[
+  {
+    "id": "camiseta-modelo",
+    "nome": "Camiseta Modelo",
+    "preco": "R$ 69,90",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "categoria": "camisetas",
+    "imagem": "assets/img/produtos/camisetas/camiseta-modelo.svg",
+    "alt": "Camiseta Modelo Grüninger Wear",
+    "mensagem": "Tenho interesse na Camiseta Modelo"
+  }
+]

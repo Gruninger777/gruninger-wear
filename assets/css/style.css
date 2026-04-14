@@ -1,0 +1,138 @@
+:root {
+  --bg-main: #0d0d0d;
+  --bg-card: #1a1a1a;
+  --bg-media: #333333;
+  --text-main: #f1f1f1;
+  --text-muted: #cccccc;
+  --price: #00ff88;
+  --whatsapp: #25d366;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+header {
+  text-align: center;
+  padding: 30px 16px 10px;
+}
+
+header img {
+  display: block;
+  width: 260px;
+  max-width: 90%;
+  margin: 0 auto 10px;
+}
+
+header p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.topo-loja {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.topo-loja h1,
+.topo-loja h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.grid-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.produto {
+  background: var(--bg-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.produto:hover {
+  transform: scale(1.03);
+}
+
+.produto img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: var(--bg-media);
+}
+
+.info {
+  padding: 15px;
+}
+
+.info h2,
+.info h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.preco {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--price);
+  margin-bottom: 10px;
+}
+
+.detalhes {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.botao {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: var(--whatsapp);
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+  header {
+    padding-top: 24px;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  .produto img {
+    height: 280px;
+  }
+}

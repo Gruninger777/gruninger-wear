@@ -1,0 +1,18 @@
+Organização rápida das imagens de produtos:
+
+- `assets/img/produtos/camisetas/`: camisetas comuns já usadas no catálogo atual.
+- `assets/img/produtos/camisas/street/`: camisas com proposta street, visual urbano ou linha streetwear.
+- `assets/img/produtos/camisas/oversized/`: camisas com modelagem oversized e caimento mais amplo.
+- `assets/img/produtos/camisetas-cristas/`: modelos com cristas.
+- `assets/img/produtos/polos/`: polos.
+- `assets/img/produtos/texturizadas/`: peças texturizadas.
+- `assets/img/produtos/infantis/`: linha infantil.
+- `assets/img/produtos/outros/`: itens fora das categorias acima.
+
+Sempre que adicionar uma nova peça:
+1. Coloque a imagem na pasta da categoria correta.
+2. Se a peça for camisa street, use `assets/img/produtos/camisas/street/`.
+3. Se a peça for camisa oversized, use `assets/img/produtos/camisas/oversized/`.
+4. Se for camiseta comum do catálogo atual, mantenha em `assets/img/produtos/camisetas/`.
+5. Atualize `data/produtos.json` com nome, preço, detalhes, imagem e mensagem do WhatsApp.
+6. Use caminhos relativos, por exemplo: `assets/img/produtos/camisas/street/minha-camisa.jpg`.

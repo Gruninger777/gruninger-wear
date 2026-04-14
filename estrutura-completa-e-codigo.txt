@@ -1,0 +1,384 @@
+ESTRUTURA COMPLETA DO PROJETO
+
+gruninger_wear/
+  index.html
+  README.md
+  estrutura-completa-e-codigo.txt
+  assets/
+    css/
+      style.css
+    js/
+      script.js
+    logo/
+      logo.png
+      favicon.png
+    img/
+      produtos/
+        camisetas/
+          camiseta-modelo.svg
+        camisetas-cristas/
+        polos/
+        texturizadas/
+        infantis/
+        outros/
+  data/
+    produtos.json
+  docs/
+    organizacao.txt
+
+ARQUIVOS BINÁRIOS
+
+- assets/logo/logo.png
+- assets/logo/favicon.png
+
+CODIGO: index.html
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo oficial da Grüninger Wear.">
+  <title>Catálogo | Grüninger Wear</title>
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="shortcut icon" href="assets/logo/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/logo/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <img src="assets/logo/logo.png" alt="Grüninger Wear Logo">
+    <p>Estilo, identidade e atitude</p>
+  </header>
+
+  <main class="container">
+    <section class="topo-loja">
+      <h1>Catálogo Oficial</h1>
+    </section>
+
+    <section class="grid-produtos" id="grid-produtos" data-produtos-src="data/produtos.json" aria-live="polite">
+      <article class="produto" data-produto="fallback">
+        <img src="assets/img/produtos/camisetas/camiseta-modelo.svg" alt="Camiseta Modelo Grüninger Wear">
+        <div class="info">
+          <h2>Camiseta Modelo</h2>
+          <p class="preco">R$ 69,90</p>
+          <div class="detalhes">Tamanhos: P, M, G, GG</div>
+          <a class="botao" href="https://wa.me/5517988090379?text=Tenho%20interesse%20na%20Camiseta%20Modelo" target="_blank" rel="noreferrer">
+            Comprar
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Grüninger Wear</p>
+  </footer>
+</body>
+</html>
+
+CODIGO: assets/css/style.css
+
+:root {
+  --bg-main: #0d0d0d;
+  --bg-card: #1a1a1a;
+  --bg-media: #333333;
+  --text-main: #f1f1f1;
+  --text-muted: #cccccc;
+  --price: #00ff88;
+  --whatsapp: #25d366;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+header {
+  text-align: center;
+  padding: 30px 16px 10px;
+}
+
+header img {
+  display: block;
+  width: 260px;
+  max-width: 90%;
+  margin: 0 auto 10px;
+}
+
+header p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.topo-loja {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.topo-loja h1,
+.topo-loja h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.grid-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.produto {
+  background: var(--bg-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.produto:hover {
+  transform: scale(1.03);
+}
+
+.produto img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: var(--bg-media);
+}
+
+.info {
+  padding: 15px;
+}
+
+.info h2,
+.info h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.preco {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--price);
+  margin-bottom: 10px;
+}
+
+.detalhes {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.botao {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: var(--whatsapp);
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+  header {
+    padding-top: 24px;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  .produto img {
+    height: 280px;
+  }
+}
+
+CODIGO: assets/js/script.js
+
+const WHATSAPP_NUMBER = "5517988090379";
+const DEFAULT_IMAGE = "assets/img/produtos/camisetas/camiseta-modelo.svg";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.querySelector("#grid-produtos");
+
+  if (!grid) {
+    return;
+  }
+
+  carregarProdutos(grid);
+});
+
+async function carregarProdutos(grid) {
+  const source = grid.dataset.produtosSrc;
+
+  if (!source) {
+    return;
+  }
+
+  try {
+    // Em file:// o fetch pode falhar; nesse caso o card estático continua visível.
+    const response = await fetch(source, { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error(`Falha ao carregar ${source}: ${response.status}`);
+    }
+
+    const produtos = await response.json();
+
+    if (!Array.isArray(produtos) || produtos.length === 0) {
+      return;
+    }
+
+    grid.innerHTML = produtos.map(criarCardProduto).join("");
+  } catch (error) {
+    console.info("Catálogo usando fallback estático.", error);
+  }
+}
+
+function criarCardProduto(produto) {
+  const nome = escapeHtml(produto.nome || "Produto");
+  const preco = escapeHtml(produto.preco || "Consulte");
+  const detalhes = escapeHtml(produto.detalhes || "Consulte disponibilidade");
+  const alt = escapeHtml(produto.alt || produto.nome || "Produto Grüninger Wear");
+  const imagem = escapeAttribute(produto.imagem || DEFAULT_IMAGE);
+  const mensagem = encodeURIComponent(produto.mensagem || `Tenho interesse na ${produto.nome || "peça"}`);
+
+  return `
+    <article class="produto">
+      <img src="${imagem}" alt="${alt}">
+      <div class="info">
+        <h2>${nome}</h2>
+        <p class="preco">${preco}</p>
+        <div class="detalhes">${detalhes}</div>
+        <a class="botao" href="https://wa.me/${WHATSAPP_NUMBER}?text=${mensagem}" target="_blank" rel="noreferrer">
+          Comprar
+        </a>
+      </div>
+    </article>
+  `;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function escapeAttribute(value) {
+  return String(value).replaceAll('"', "&quot;");
+}
+
+CODIGO: data/produtos.json
+
+[
+  {
+    "id": "camiseta-modelo",
+    "nome": "Camiseta Modelo",
+    "preco": "R$ 69,90",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "categoria": "camisetas",
+    "imagem": "assets/img/produtos/camisetas/camiseta-modelo.svg",
+    "alt": "Camiseta Modelo Grüninger Wear",
+    "mensagem": "Tenho interesse na Camiseta Modelo"
+  }
+]
+
+CODIGO: README.md
+
+# Grüninger Wear
+
+Catálogo estático organizado para abrir localmente e publicar no GitHub Pages.
+
+- `index.html`: entrada principal do catálogo
+- `assets/logo/`: logo e favicon
+- `assets/css/style.css`: estilos preservados em arquivo próprio
+- `assets/js/script.js`: leitura progressiva de `data/produtos.json`
+- `assets/img/produtos/`: imagens separadas por categoria
+- `data/produtos.json`: base inicial de produtos
+- `docs/organizacao.txt`: referência rápida para futuras imagens
+
+Ao abrir via `file://`, o card estático mantém o catálogo funcional. Em servidor ou GitHub Pages, o JavaScript também lê `data/produtos.json`.
+
+CODIGO: docs/organizacao.txt
+
+Organização rápida das imagens de produtos:
+
+- `assets/img/produtos/camisetas/`: camisetas comuns
+- `assets/img/produtos/camisetas-cristas/`: modelos com cristas
+- `assets/img/produtos/polos/`: polos
+- `assets/img/produtos/texturizadas/`: peças texturizadas
+- `assets/img/produtos/infantis/`: linha infantil
+- `assets/img/produtos/outros/`: itens fora das categorias acima
+
+Sempre que adicionar uma nova peça:
+1. Coloque a imagem na pasta da categoria correta.
+2. Atualize `data/produtos.json` com nome, preço, detalhes, imagem e mensagem do WhatsApp.
+3. Use caminhos relativos, por exemplo: `assets/img/produtos/polos/minha-polo.jpg`.
+
+CODIGO: assets/img/produtos/camisetas/camiseta-modelo.svg
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1560" role="img" aria-labelledby="title desc">
+  <title id="title">Camiseta Modelo Grüninger Wear</title>
+  <desc id="desc">Imagem ilustrativa premium para o catálogo da Grüninger Wear.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080808"/>
+      <stop offset="50%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1f1f"/>
+      <stop offset="100%" stop-color="#090909"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1fb86d"/>
+      <stop offset="100%" stop-color="#6dffd5"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="40" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1560" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="1420" rx="36" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+  <ellipse cx="600" cy="590" rx="430" ry="500" fill="rgba(31,184,109,0.15)"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M389 287c39-48 119-78 211-78s172 30 211 78l132 93-104 170-79-49v612c0 23-19 42-42 42H472c-23 0-42-19-42-42V501l-79 49-104-170 142-93z" fill="url(#shirt)"/>
+    <path d="M512 239c18 41 49 61 88 61s70-20 88-61" fill="none" stroke="#2a2a2a" stroke-width="30" stroke-linecap="round"/>
+    <path d="M468 1112h264" stroke="url(#accent)" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+    <path d="M468 1148h186" stroke="#2b2b2b" stroke-width="8" stroke-linecap="round"/>
+    <text x="600" y="745" fill="#f1f1f1" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="10" text-anchor="middle">GRÜNINGER</text>
+    <text x="600" y="830" fill="#8a8a8a" font-family="Arial, Helvetica, sans-serif" font-size="38" letter-spacing="12" text-anchor="middle">WEAR</text>
+    <text x="600" y="1245" fill="#7ae7b1" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="7" text-anchor="middle">MODELO VISUAL PARA O CATÁLOGO</text>
+  </g>
+</svg>
