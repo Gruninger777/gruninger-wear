@@ -123,20 +123,16 @@ function aplicarFiltro(grid, filtroAtivo, vazio) {
     return;
   }
 
-  let visiveis = 0;
-
   cards.forEach((card) => {
     const filterKey = card.dataset.filterKey || "";
     const mostrar = filtroAtivo === "todos" || filterKey === filtroAtivo;
 
+    card.classList.toggle("is-hidden-by-filter", !mostrar);
     card.hidden = !mostrar;
-    card.style.display = mostrar ? "" : "none";
     card.setAttribute("aria-hidden", String(!mostrar));
-
-    if (mostrar) {
-      visiveis += 1;
-    }
   });
+
+  const visiveis = cards.filter((card) => !card.classList.contains("is-hidden-by-filter")).length;
 
   if (vazio) {
     vazio.hidden = visiveis !== 0;

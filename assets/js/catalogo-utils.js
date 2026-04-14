@@ -94,6 +94,12 @@
   }
 
   function criarMensagemWhatsapp(produto, variacao) {
+    const mensagemCustomizada = variacao?.mensagem || produto?.mensagem;
+
+    if (mensagemCustomizada) {
+      return String(mensagemCustomizada);
+    }
+
     const nome = typeof produto === "string" ? produto : produto.nome;
     const cor =
       variacao &&

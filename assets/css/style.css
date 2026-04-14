@@ -143,6 +143,10 @@ header p {
   cursor: pointer;
 }
 
+.grid-produtos > .produto.is-hidden-by-filter {
+  display: none !important;
+}
+
 .produto-card-link {
   position: absolute;
   inset: 0;
