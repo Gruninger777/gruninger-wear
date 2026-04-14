@@ -8,13 +8,20 @@
     "destaque": "Estampa premium",
     "detalhes": "Tamanhos: P, M, G, GG",
     "descricao": "Peça com visual street e presença gráfica marcante para compor a linha urbana da Grüninger Wear.",
-    "alt": "Camiseta Dragon Street preta",
+    "alt": "Camiseta Dragon Street",
     "variacoes": [
       {
         "cor": "preta",
         "hex": "#111111",
         "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-frente.jpg",
         "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-verso.jpg"
+      },
+      {
+        "cor": "branca",
+        "hex": "#f3f3f3",
+        "mensagem": "Olá! Tenho interesse na Camiseta Dragon Street branca. Quais tamanhos estão disponíveis?",
+        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dragon-branca-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-branca-verso.jpg"
       }
     ]
   },

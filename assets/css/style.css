@@ -257,14 +257,14 @@ header p {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.5;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .botao {
   display: inline-block;
   width: 100%;
   text-align: center;
-  margin-top: auto;
+  margin-top: 2px;
   position: relative;
   z-index: 3;
   background: linear-gradient(180deg, var(--whatsapp) 0%, var(--whatsapp-dark) 100%);
@@ -525,6 +525,7 @@ footer {
   }
 
   .botao {
+    margin-top: 2px;
     padding: 12px 14px;
     font-size: 15px;
   }
