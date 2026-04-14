@@ -9,5 +9,18 @@
     "imagem": "assets/img/produtos/camisetas/camiseta-modelo.svg",
     "alt": "Camiseta Essential Grüninger Wear",
     "mensagem": "Olá! Tenho interesse na peça Camiseta Essential. Quais tamanhos estão disponíveis?"
+  },
+  {
+    "id": "camisas-street-dragon-preta",
+    "nome": "Camiseta Dragon Street",
+    "preco": "R$ 69,90",
+    "destaque": "Estampa premium",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "categoria": "camisas",
+    "subcategoria": "street",
+    "imagem": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-frente.jpg",
+    "imagemVerso": "assets/img/produtos/camisas/street/camisas-street-dragon-preta-verso.jpg",
+    "alt": "Camiseta Dragon Street preta",
+    "mensagem": "Olá! Tenho interesse na Camiseta Dragon Street. Quais tamanhos estão disponíveis?"
   }
 ]
