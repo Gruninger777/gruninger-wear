@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const whatsapp = document.querySelector("#produto-whatsapp");
 
     let indiceVariacao = 0;
-    let vistaAtiva = produto.variacoes[0]?.vistaInicial || "verso";
+    let vistaAtiva = obterVistaInicial(produto.variacoes[0]);
 
     document.title = `${produto.nome} | Grüninger Wear`;
 
@@ -169,10 +169,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       swatches.querySelectorAll(".produto-swatch").forEach((botao) => {
         botao.addEventListener("click", () => {
           indiceVariacao = Number(botao.dataset.variacaoIndex);
-          vistaAtiva = produto.variacoes[indiceVariacao]?.vistaInicial || "verso";
+          vistaAtiva = obterVistaInicial(produto.variacoes[indiceVariacao]);
           atualizarProduto();
         });
       });
+    }
+
+    function obterVistaInicial(variacao) {
+      const vistas = Array.isArray(variacao?.galeria) ? variacao.galeria : [];
+      return vistas[0]?.id || variacao?.vistaInicial || "verso";
     }
 
     function obterVistaAtiva(variacao) {

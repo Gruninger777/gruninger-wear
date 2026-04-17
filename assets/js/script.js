@@ -69,16 +69,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 function criarCardProduto(produto) {
   const utils = window.CatalogoUtils;
   const variacaoPadrao = produto.variacoes[0];
-  const exibirFrentePrimeiro = variacaoPadrao.vistaInicial === "frente";
+  const galeria = Array.isArray(variacaoPadrao.galeria) ? variacaoPadrao.galeria : [];
   const imagemPrimaria = utils.escapeAttribute(
-    exibirFrentePrimeiro
-      ? utils.obterImagemHover(variacaoPadrao)
-      : utils.obterImagemPrincipal(variacaoPadrao)
+    galeria[0]?.imagem || utils.obterImagemPrincipal(variacaoPadrao)
   );
   const imagemSecundaria = utils.escapeAttribute(
-    exibirFrentePrimeiro
-      ? utils.obterImagemPrincipal(variacaoPadrao)
-      : utils.obterImagemHover(variacaoPadrao)
+    galeria[1]?.imagem || galeria[0]?.secundaria || utils.obterImagemHover(variacaoPadrao)
   );
   const nome = utils.escapeHtml(produto.nome);
   const preco = utils.escapeHtml(produto.precoTexto);
