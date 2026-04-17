@@ -69,8 +69,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 function criarCardProduto(produto) {
   const utils = window.CatalogoUtils;
   const variacaoPadrao = produto.variacoes[0];
-  const imagemVerso = utils.escapeAttribute(utils.obterImagemPrincipal(variacaoPadrao));
-  const imagemFrente = utils.escapeAttribute(utils.obterImagemHover(variacaoPadrao));
+  const exibirFrentePrimeiro = variacaoPadrao.vistaInicial === "frente";
+  const imagemPrimaria = utils.escapeAttribute(
+    exibirFrentePrimeiro
+      ? utils.obterImagemHover(variacaoPadrao)
+      : utils.obterImagemPrincipal(variacaoPadrao)
+  );
+  const imagemSecundaria = utils.escapeAttribute(
+    exibirFrentePrimeiro
+      ? utils.obterImagemPrincipal(variacaoPadrao)
+      : utils.obterImagemHover(variacaoPadrao)
+  );
   const nome = utils.escapeHtml(produto.nome);
   const preco = utils.escapeHtml(produto.precoTexto);
   const destaque = utils.escapeHtml(produto.destaque);
@@ -91,17 +100,17 @@ function criarCardProduto(produto) {
       <div class="produto-media">
         <img
           class="produto-imagem produto-imagem--verso"
-          src="${imagemVerso}"
-          data-image-primary="${imagemVerso}"
-          data-image-secondary="${imagemFrente}"
+          src="${imagemPrimaria}"
+          data-image-primary="${imagemPrimaria}"
+          data-image-secondary="${imagemSecundaria}"
           alt="${alt}"
           loading="lazy"
         >
         <img
           class="produto-imagem produto-imagem--frente"
-          src="${imagemFrente}"
-          data-image-primary="${imagemFrente}"
-          data-image-secondary="${imagemVerso}"
+          src="${imagemSecundaria}"
+          data-image-primary="${imagemSecundaria}"
+          data-image-secondary="${imagemPrimaria}"
           alt=""
           loading="lazy"
           aria-hidden="true"
