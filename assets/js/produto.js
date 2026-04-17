@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const whatsapp = document.querySelector("#produto-whatsapp");
 
     let indiceVariacao = 0;
-    let vistaAtiva = "verso";
+    let vistaAtiva = produto.variacoes[0]?.vistaInicial || "verso";
 
     document.title = `${produto.nome} | Grüninger Wear`;
 
@@ -67,14 +67,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     function atualizarProduto() {
       const variacao = produto.variacoes[indiceVariacao];
-      const imagemAtual =
-        vistaAtiva === "frente"
-          ? window.CatalogoUtils.obterImagemHover(variacao)
-          : window.CatalogoUtils.obterImagemPrincipal(variacao);
+      const vista = obterVistaAtiva(variacao);
+      const imagemAtual = vista.imagem;
 
       imagemPrincipal.src = imagemAtual;
-      imagemPrincipal.alt = `${produto.nome} ${variacao.corLabel} ${vistaAtiva}`.trim();
+      imagemPrincipal.alt = montarAltImagem(produto, variacao, vista);
       window.CatalogoUtils.registrarFallbackImagem(imagemPrincipal, [
+        vista.imagem,
+        vista.secundaria,
         window.CatalogoUtils.obterImagemPrincipal(variacao),
         window.CatalogoUtils.obterImagemHover(variacao)
       ]);
@@ -89,10 +89,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     function renderizarMiniaturas(variacao) {
-      const vistas = [
-        { id: "verso", label: "Verso", imagem: window.CatalogoUtils.obterImagemPrincipal(variacao), secundaria: window.CatalogoUtils.obterImagemHover(variacao) },
-        { id: "frente", label: "Frente", imagem: window.CatalogoUtils.obterImagemHover(variacao), secundaria: window.CatalogoUtils.obterImagemPrincipal(variacao) }
-      ];
+      const vistas = Array.isArray(variacao.galeria) && variacao.galeria.length
+        ? variacao.galeria
+        : [
+            {
+              id: "verso",
+              label: "Verso",
+              imagem: window.CatalogoUtils.obterImagemPrincipal(variacao),
+              secundaria: window.CatalogoUtils.obterImagemHover(variacao)
+            },
+            {
+              id: "frente",
+              label: "Frente",
+              imagem: window.CatalogoUtils.obterImagemHover(variacao),
+              secundaria: window.CatalogoUtils.obterImagemPrincipal(variacao)
+            }
+          ];
 
       miniaturas.innerHTML = vistas
         .map(
@@ -157,10 +169,31 @@ document.addEventListener("DOMContentLoaded", async () => {
       swatches.querySelectorAll(".produto-swatch").forEach((botao) => {
         botao.addEventListener("click", () => {
           indiceVariacao = Number(botao.dataset.variacaoIndex);
-          vistaAtiva = "verso";
+          vistaAtiva = produto.variacoes[indiceVariacao]?.vistaInicial || "verso";
           atualizarProduto();
         });
       });
+    }
+
+    function obterVistaAtiva(variacao) {
+      const vistas = Array.isArray(variacao.galeria) && variacao.galeria.length ? variacao.galeria : [];
+      return vistas.find((vista) => vista.id === vistaAtiva) || vistas[0] || {
+        id: "verso",
+        label: "Verso",
+        imagem: window.CatalogoUtils.obterImagemPrincipal(variacao),
+        secundaria: window.CatalogoUtils.obterImagemHover(variacao)
+      };
+    }
+
+    function montarAltImagem(produtoAtual, variacaoAtual, vistaAtual) {
+      const cor =
+        variacaoAtual.cor &&
+        variacaoAtual.cor.toLowerCase() !== "unica" &&
+        variacaoAtual.cor.toLowerCase() !== "\u00fanica"
+          ? ` ${variacaoAtual.corLabel}`
+          : "";
+
+      return `${produtoAtual.nome}${cor} ${vistaAtual.label}`.trim();
     }
 
     atualizarProduto();

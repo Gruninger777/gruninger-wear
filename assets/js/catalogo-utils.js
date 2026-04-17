@@ -80,14 +80,84 @@
       imagemFrente;
 
     const cor = String(variacao.cor || "unica");
+    const galeria = normalizarGaleria(variacao, produto, imagemFrente, imagemVerso);
+    const vistaInicial = resolverVistaInicial(variacao, produto, galeria);
 
     return {
       cor,
       corLabel: humanizar(cor),
       hex: variacao.hex || resolverCor(cor),
       imagemFrente,
-      imagemVerso
+      imagemVerso,
+      galeria,
+      vistaInicial
     };
+  }
+
+  function normalizarGaleria(variacao, produto, imagemFrente, imagemVerso) {
+    const origemGaleria =
+      (Array.isArray(variacao.galeria) && variacao.galeria.length ? variacao.galeria : null) ||
+      (Array.isArray(produto.galeria) && produto.galeria.length ? produto.galeria : null);
+
+    if (!origemGaleria) {
+      return [
+        {
+          id: "verso",
+          label: "Verso",
+          imagem: imagemVerso,
+          secundaria: imagemFrente
+        },
+        {
+          id: "frente",
+          label: "Frente",
+          imagem: imagemFrente,
+          secundaria: imagemVerso
+        }
+      ].filter((vista) => vista.imagem);
+    }
+
+    return origemGaleria
+      .map((item, index) => {
+        const id = String(item.id || `vista-${index + 1}`)
+          .trim()
+          .toLowerCase();
+        const label = String(item.label || humanizar(id) || `Vista ${index + 1}`).trim();
+        const imagem = String(item.imagem || item.src || DEFAULT_IMAGE);
+        const secundaria = String(
+          item.secundaria ||
+            item.imagem_secundaria ||
+            item.imagemSecundaria ||
+            imagemFrente ||
+            imagemVerso ||
+            DEFAULT_IMAGE
+        );
+
+        return {
+          id,
+          label,
+          imagem,
+          secundaria
+        };
+      })
+      .filter((vista) => vista.imagem);
+  }
+
+  function resolverVistaInicial(variacao, produto, galeria) {
+    const vistaSolicitada = String(
+      variacao.vista_inicial ||
+        variacao.vistaInicial ||
+        produto.vista_inicial ||
+        produto.vistaInicial ||
+        ""
+    )
+      .trim()
+      .toLowerCase();
+
+    if (vistaSolicitada && galeria.some((vista) => vista.id === vistaSolicitada)) {
+      return vistaSolicitada;
+    }
+
+    return galeria[0]?.id || "verso";
   }
 
   function resolverCor(cor) {

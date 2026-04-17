@@ -93,5 +93,52 @@
         "imagem_verso": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
       }
     ]
+  },
+  {
+    "id": "camisa-treino-brasil-itau-guarana",
+    "nome": "Camisa Treino Brasil Ita\u00fa Guaran\u00e1",
+    "preco": 89.9,
+    "categoria": "camisas",
+    "subcategoria": "times",
+    "destaque": "Visual esportivo e marcante",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "descricao": "Camisa treino com visual esportivo e marcante.",
+    "alt": "Camisa Treino Brasil Ita\u00fa Guaran\u00e1 frente",
+    "mensagem": "Ol\u00e1! Tenho interesse na Camisa Treino Brasil Ita\u00fa Guaran\u00e1. Quais tamanhos est\u00e3o dispon\u00edveis?",
+    "variacoes": [
+      {
+        "cor": "unica",
+        "hex": "#f0cf5b",
+        "imagem_frente": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-frente.jpg"
+          },
+          {
+            "id": "modelo-frente",
+            "label": "Modelo Frente",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-modelo-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-frente.jpg"
+          },
+          {
+            "id": "modelo-verso",
+            "label": "Modelo Verso",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-modelo-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-brasil-itau-guarana-verso.jpg"
+          }
+        ]
+      }
+    ]
   }
 ]
