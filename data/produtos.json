@@ -140,5 +140,51 @@
         ]
       }
     ]
+  },
+  {
+    "id": "camisa-polo-santos-fc-azul-bmg-neymar-jr-11",
+    "nome": "Camisa Polo Santos FC Azul BMG Neymar Jr 11",
+    "preco": 79.9,
+    "categoria": "camisas",
+    "subcategoria": "times",
+    "destaque": "Estilo esportivo premium",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camisa Polo Santos FC Azul BMG Neymar Jr 11 frente",
+    "mensagem": "Ol\u00e1! Tenho interesse na Camisa Polo Santos FC Azul BMG Neymar Jr 11. Quais tamanhos est\u00e3o dispon\u00edveis?",
+    "variacoes": [
+      {
+        "cor": "azul",
+        "hex": "#29466c",
+        "imagem_frente": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-modelo-frente.jpg"
+          },
+          {
+            "id": "modelo-frente",
+            "label": "Modelo Frente",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-modelo-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-frente.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-modelo-verso.jpg"
+          },
+          {
+            "id": "modelo-verso",
+            "label": "Modelo Verso",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-modelo-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-verso.jpg"
+          }
+        ]
+      }
+    ]
   }
 ]
