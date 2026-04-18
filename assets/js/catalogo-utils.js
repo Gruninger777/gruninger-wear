@@ -102,16 +102,16 @@
     if (!origemGaleria) {
       return [
         {
-          id: "verso",
-          label: "Verso",
-          imagem: imagemVerso,
-          secundaria: imagemFrente
-        },
-        {
           id: "frente",
           label: "Frente",
           imagem: imagemFrente,
           secundaria: imagemVerso
+        },
+        {
+          id: "verso",
+          label: "Verso",
+          imagem: imagemVerso,
+          secundaria: imagemFrente
         }
       ].filter((vista) => vista.imagem);
     }
@@ -157,7 +157,7 @@
       return vistaSolicitada;
     }
 
-    return galeria[0]?.id || "verso";
+    return galeria[0]?.id || "frente";
   }
 
   function resolverCor(cor) {
@@ -184,11 +184,11 @@
   }
 
   function obterImagemPrincipal(variacao) {
-    return variacao.imagemVerso || variacao.imagemFrente || DEFAULT_IMAGE;
+    return variacao.imagemFrente || variacao.imagemVerso || DEFAULT_IMAGE;
   }
 
   function obterImagemHover(variacao) {
-    return variacao.imagemFrente || variacao.imagemVerso || DEFAULT_IMAGE;
+    return variacao.imagemVerso || variacao.imagemFrente || DEFAULT_IMAGE;
   }
 
   function registrarFallbackImagem(element, sources) {

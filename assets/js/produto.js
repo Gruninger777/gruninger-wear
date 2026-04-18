@@ -93,14 +93,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         ? variacao.galeria
         : [
             {
-              id: "verso",
-              label: "Verso",
+              id: "frente",
+              label: "Frente",
               imagem: window.CatalogoUtils.obterImagemPrincipal(variacao),
               secundaria: window.CatalogoUtils.obterImagemHover(variacao)
             },
             {
-              id: "frente",
-              label: "Frente",
+              id: "verso",
+              label: "Verso",
               imagem: window.CatalogoUtils.obterImagemHover(variacao),
               secundaria: window.CatalogoUtils.obterImagemPrincipal(variacao)
             }
@@ -177,14 +177,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     function obterVistaInicial(variacao) {
       const vistas = Array.isArray(variacao?.galeria) ? variacao.galeria : [];
-      return vistas[0]?.id || variacao?.vistaInicial || "verso";
+      return vistas[0]?.id || variacao?.vistaInicial || "frente";
     }
 
     function obterVistaAtiva(variacao) {
       const vistas = Array.isArray(variacao.galeria) && variacao.galeria.length ? variacao.galeria : [];
       return vistas.find((vista) => vista.id === vistaAtiva) || vistas[0] || {
-        id: "verso",
-        label: "Verso",
+        id: "frente",
+        label: "Frente",
         imagem: window.CatalogoUtils.obterImagemPrincipal(variacao),
         secundaria: window.CatalogoUtils.obterImagemHover(variacao)
       };

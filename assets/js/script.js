@@ -70,11 +70,17 @@ function criarCardProduto(produto) {
   const utils = window.CatalogoUtils;
   const variacaoPadrao = produto.variacoes[0];
   const galeria = Array.isArray(variacaoPadrao.galeria) ? variacaoPadrao.galeria : [];
+  const vistaFrente = galeria.find((vista) => vista.id === "frente");
+  const vistaVerso = galeria.find((vista) => vista.id === "verso");
   const imagemPrimaria = utils.escapeAttribute(
-    galeria[0]?.imagem || utils.obterImagemPrincipal(variacaoPadrao)
+    vistaFrente?.imagem || galeria[0]?.imagem || utils.obterImagemPrincipal(variacaoPadrao)
   );
   const imagemSecundaria = utils.escapeAttribute(
-    galeria[1]?.imagem || galeria[0]?.secundaria || utils.obterImagemHover(variacaoPadrao)
+    vistaVerso?.imagem ||
+      galeria[1]?.imagem ||
+      vistaFrente?.secundaria ||
+      galeria[0]?.secundaria ||
+      utils.obterImagemHover(variacaoPadrao)
   );
   const nome = utils.escapeHtml(produto.nome);
   const preco = utils.escapeHtml(produto.precoTexto);

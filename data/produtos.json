@@ -13,7 +13,22 @@
         "cor": "preta",
         "hex": "#111111",
         "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg",
-        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg"
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-dragon-kanji-preta-frente.jpg"
+          }
+        ]
       }
     ]
   },
@@ -26,13 +41,28 @@
     "destaque": "Estilo minimalista premium",
     "detalhes": "Tamanhos: P, M, G, GG",
     "alt": "Camiseta Dragon Minimal branca",
-    "mensagem": "Olá! Tenho interesse na Camiseta Dragon Minimal. Quais tamanhos estão disponíveis?",
+    "mensagem": "OlÃ¡! Tenho interesse na Camiseta Dragon Minimal. Quais tamanhos estÃ£o disponÃ­veis?",
     "variacoes": [
       {
         "cor": "branca",
         "hex": "#f3f3f3",
         "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg",
-        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg"
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-dragon-minimal-branca-frente.jpg"
+          }
+        ]
       }
     ]
   },
@@ -42,16 +72,31 @@
     "preco": 69.9,
     "categoria": "camisas",
     "subcategoria": "street",
-    "destaque": "Estilo artístico e exclusivo",
+    "destaque": "Estilo artÃ­stico e exclusivo",
     "detalhes": "Tamanhos: P, M, G, GG",
     "alt": "Camiseta Dual Mask Street bege",
-    "mensagem": "Olá! Tenho interesse na Camiseta Dual Mask Street. Quais tamanhos estão disponíveis?",
+    "mensagem": "OlÃ¡! Tenho interesse na Camiseta Dual Mask Street. Quais tamanhos estÃ£o disponÃ­veis?",
     "variacoes": [
       {
         "cor": "bege",
         "hex": "#ccb79c",
         "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg",
-        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg"
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-dual-mask-bege-frente.jpg"
+          }
+        ]
       }
     ]
   },
@@ -64,33 +109,63 @@
     "destaque": "Estilo leve e moderno",
     "detalhes": "Tamanhos: P, M, G, GG",
     "alt": "Camiseta Smile Street preta",
-    "mensagem": "Olá! Tenho interesse na Camiseta Smile Street. Quais tamanhos estão disponíveis?",
+    "mensagem": "OlÃ¡! Tenho interesse na Camiseta Smile Street. Quais tamanhos estÃ£o disponÃ­veis?",
     "variacoes": [
       {
         "cor": "preta",
         "hex": "#111111",
         "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-smile-preta-frente.jpg",
-        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg"
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-smile-preta-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-smile-preta-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-smile-preta-frente.jpg"
+          }
+        ]
       }
     ]
   },
   {
     "id": "fe-proposito-street",
-    "nome": "Camiseta Fé & Propósito Street",
+    "nome": "Camiseta FÃ© & PropÃ³sito Street",
     "preco": 69.9,
     "categoria": "camisas",
     "subcategoria": "cristas",
     "genero": "unissex",
     "destaque": "Mensagem forte e inspiradora",
     "detalhes": "Tamanhos: P, M, G, GG",
-    "alt": "Camiseta Fé & Propósito Street preta",
-    "mensagem": "Olá! Tenho interesse na Camiseta Fé & Propósito Street. Quais tamanhos estão disponíveis?",
+    "alt": "Camiseta FÃ© & PropÃ³sito Street preta",
+    "mensagem": "OlÃ¡! Tenho interesse na Camiseta FÃ© & PropÃ³sito Street. Quais tamanhos estÃ£o disponÃ­veis?",
     "variacoes": [
       {
         "cor": "preta",
         "hex": "#111111",
         "imagem_frente": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg",
-        "imagem_verso": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
+        "imagem_verso": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-fe-proposito-preta-frente.jpg"
+          }
+        ]
       }
     ]
   },
@@ -163,19 +238,19 @@
             "id": "frente",
             "label": "Frente",
             "imagem": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-frente.jpg",
-            "secundaria": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-modelo-frente.jpg"
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-frente.jpg"
           },
           {
             "id": "modelo-frente",
             "label": "Modelo Frente",
             "imagem": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-modelo-frente.jpg",
             "secundaria": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-frente.jpg"
-          },
-          {
-            "id": "verso",
-            "label": "Verso",
-            "imagem": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-verso.jpg",
-            "secundaria": "assets/img/produtos/camisas/times/camisas-times-santos-fc-azul-bmg-neymar-jr-11-modelo-verso.jpg"
           },
           {
             "id": "modelo-verso",
@@ -209,19 +284,19 @@
             "id": "frente",
             "label": "Frente",
             "imagem": "assets/img/produtos/camisas/times/camisas-times-selecao-brasileira-ronaldo-9-frente.jpg",
-            "secundaria": "assets/img/produtos/camisas/times/camisas-times-selecao-brasileira-ronaldo-9-modelo-frente.jpg"
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-selecao-brasileira-ronaldo-9-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/times/camisas-times-selecao-brasileira-ronaldo-9-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/times/camisas-times-selecao-brasileira-ronaldo-9-frente.jpg"
           },
           {
             "id": "modelo-frente",
             "label": "Modelo Frente",
             "imagem": "assets/img/produtos/camisas/times/camisas-times-selecao-brasileira-ronaldo-9-modelo-frente.jpg",
             "secundaria": "assets/img/produtos/camisas/times/camisas-times-selecao-brasileira-ronaldo-9-frente.jpg"
-          },
-          {
-            "id": "verso",
-            "label": "Verso",
-            "imagem": "assets/img/produtos/camisas/times/camisas-times-selecao-brasileira-ronaldo-9-verso.jpg",
-            "secundaria": "assets/img/produtos/camisas/times/camisas-times-selecao-brasileira-ronaldo-9-modelo-verso.jpg"
           },
           {
             "id": "modelo-verso",
@@ -255,19 +330,19 @@
             "id": "frente",
             "label": "Frente",
             "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-frente.jpg",
-            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-modelo-frente.jpg"
+            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-frente.jpg"
           },
           {
             "id": "modelo-frente",
             "label": "Modelo Frente",
             "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-modelo-frente.jpg",
             "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-frente.jpg"
-          },
-          {
-            "id": "verso",
-            "label": "Verso",
-            "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-verso.jpg",
-            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-modelo-verso.jpg"
           },
           {
             "id": "modelo-verso",
