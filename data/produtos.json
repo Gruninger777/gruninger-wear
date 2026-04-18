@@ -232,5 +232,51 @@
         ]
       }
     ]
+  },
+  {
+    "id": "camiseta-oversized-palm-angels-wings",
+    "nome": "Camiseta Oversized Palm Angels Wings",
+    "preco": 79.9,
+    "categoria": "camisas",
+    "subcategoria": "oversized",
+    "destaque": "Visual marcante e oversized",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camiseta Oversized Palm Angels Wings branca frente",
+    "mensagem": "Ol\u00e1! Tenho interesse na Camiseta Oversized Palm Angels Wings. Quais tamanhos est\u00e3o dispon\u00edveis?",
+    "variacoes": [
+      {
+        "cor": "branca",
+        "hex": "#f3f3f3",
+        "imagem_frente": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-modelo-frente.jpg"
+          },
+          {
+            "id": "modelo-frente",
+            "label": "Modelo Frente",
+            "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-modelo-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-frente.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-modelo-verso.jpg"
+          },
+          {
+            "id": "modelo-verso",
+            "label": "Modelo Verso",
+            "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-modelo-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-verso.jpg"
+          }
+        ]
+      }
+    ]
   }
 ]
