@@ -408,33 +408,37 @@
     "subcategoria": "street",
     "destaque": "B\u00e1sica, clean e vers\u00e1til",
     "detalhes": "Tamanhos: P, M, G, GG",
-    "alt": "Camiseta Nike Air Essential branca verso produto",
+    "alt": "Camiseta Nike Air Essential branca frente",
     "mensagem": "Ol\u00e1! Tenho interesse na Camiseta Nike Air Essential. Quais tamanhos est\u00e3o dispon\u00edveis?",
+    "regra_card": {
+      "principal": "frente",
+      "hover": "verso"
+    },
     "variacoes": [
       {
         "cor": "branca",
         "hex": "#f3f3f3",
-        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-frente.jpg",
-        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-verso.jpg",
-        "vista_inicial": "verso",
+        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-frente-produto.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-costas-produto.jpg",
+        "vista_inicial": "frente-manequim",
         "galeria": [
           {
-            "id": "verso",
-            "label": "Verso",
-            "imagem": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-verso.jpg",
-            "secundaria": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-modelo-frente.jpg"
+            "id": "frente-manequim",
+            "label": "Frente Manequim",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-frente-manequim.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-frente-produto.jpg"
           },
           {
-            "id": "modelo-frente",
-            "label": "Modelo Frente",
-            "imagem": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-modelo-frente.jpg",
-            "secundaria": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-frente.jpg"
+            "id": "frente-produto",
+            "label": "Frente Produto",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-frente-produto.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-frente-manequim.jpg"
           },
           {
-            "id": "frente",
-            "label": "Frente",
-            "imagem": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-frente.jpg",
-            "secundaria": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-modelo-frente.jpg"
+            "id": "costas-produto",
+            "label": "Costas Produto",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-costas-produto.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-nike-air-essential-branca-frente-produto.jpg"
           }
         ]
       }

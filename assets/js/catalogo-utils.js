@@ -31,6 +31,29 @@
     })
   });
 
+  function normalizarRegraCard(origem) {
+    const regra =
+      origem?.regraCard ||
+      origem?.regra_card ||
+      origem?.cardRule ||
+      origem?.card_rule ||
+      origem?.card ||
+      null;
+    const principal = normalizarTaxonomiaValor(
+      regra?.principal ?? origem?.card_principal ?? origem?.cardPrincipal
+    );
+    const hover = normalizarTaxonomiaValor(regra?.hover ?? origem?.card_hover ?? origem?.cardHover);
+
+    if (!principal || !hover) {
+      return null;
+    }
+
+    return {
+      principal,
+      hover
+    };
+  }
+
   async function carregarProdutos(source) {
     const response = await fetch(source, { cache: "no-store" });
 
@@ -62,6 +85,8 @@
       detalhes: produto.detalhes || "Consulte disponibilidade",
       descricao: produto.descricao || "Peça disponível no catálogo Grüninger Wear.",
       alt: produto.alt || `${nome} Grüninger Wear`,
+      mensagem: produto.mensagem || "",
+      regraCard: normalizarRegraCard(produto),
       variacoes: normalizarVariacoes(produto)
     };
   }
@@ -101,6 +126,7 @@
       cor,
       corLabel: humanizar(cor),
       hex: variacao.hex || resolverCor(cor),
+      mensagem: variacao.mensagem || "",
       imagemFrente,
       imagemVerso,
       galeria,
@@ -257,6 +283,12 @@
   }
 
   function resolverRegraImagemCard(produto) {
+    const regraCustomizada = normalizarRegraCard(produto);
+
+    if (regraCustomizada) {
+      return regraCustomizada;
+    }
+
     const taxonomia = normalizarTaxonomiaProduto(produto);
     const nome = normalizarTextoBusca(produto?.nome);
 
