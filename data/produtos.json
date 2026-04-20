@@ -445,5 +445,85 @@
         ]
       }
     ]
+  },
+  {
+    "id": "camiseta-jordan-23-street",
+    "nome": "Camiseta Jordan 23 Street",
+    "preco": 69.9,
+    "categoria": "camisas",
+    "subcategoria": "street",
+    "destaque": "Estilo urbano e marcante",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camiseta Jordan 23 Street branca costas produto",
+    "variacoes": [
+      {
+        "cor": "branca",
+        "hex": "#f3f3f3",
+        "mensagem": "Olá! Tenho interesse na Camiseta Jordan 23 Street na cor branca. Quais tamanhos estão disponíveis?",
+        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-frente-produto.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-costas-produto.jpg",
+        "vista_inicial": "costas-manequim",
+        "galeria": [
+          {
+            "id": "costas-manequim",
+            "label": "Costas Manequim",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-costas-manequim.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-costas-produto.jpg"
+          },
+          {
+            "id": "costas-produto",
+            "label": "Costas Produto",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-costas-produto.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-costas-manequim.jpg"
+          },
+          {
+            "id": "frente-manequim",
+            "label": "Frente Manequim",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-frente-manequim.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-frente-produto.jpg"
+          },
+          {
+            "id": "frente-produto",
+            "label": "Frente Produto",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-frente-produto.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-jordan-23-branca-frente-manequim.jpg"
+          }
+        ]
+      },
+      {
+        "cor": "preta",
+        "hex": "#111111",
+        "mensagem": "Olá! Tenho interesse na Camiseta Jordan 23 Street na cor preta. Quais tamanhos estão disponíveis?",
+        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-frente-produto.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-costas-produto.jpg",
+        "vista_inicial": "costas-manequim",
+        "galeria": [
+          {
+            "id": "costas-manequim",
+            "label": "Costas Manequim",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-costas-manequim.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-costas-produto.jpg"
+          },
+          {
+            "id": "costas-produto",
+            "label": "Costas Produto",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-costas-produto.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-costas-manequim.jpg"
+          },
+          {
+            "id": "frente-manequim",
+            "label": "Frente Manequim",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-frente-manequim.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-frente-produto.jpg"
+          },
+          {
+            "id": "frente-produto",
+            "label": "Frente Produto",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-frente-produto.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-jordan-23-preta-frente-manequim.jpg"
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     grid.innerHTML = produtos.map(criarCardProduto).join("");
+    configurarVariacoesCard(grid, produtos);
     prepararImagensProduto(grid);
     aplicarFiltro(grid, filtroAtivo, vazio, labelAtiva, contadorAtivo);
   } catch (error) {
@@ -83,10 +84,13 @@ function criarCardProduto(produto) {
   const produtoUrl = utils.escapeAttribute(utils.criarUrlProduto(produto.id));
   const mensagem = encodeURIComponent(utils.criarMensagemWhatsapp(produto, variacaoPadrao));
   const taxonomia = extrairTaxonomiaProduto(produto);
+  const variacoesMarkup = criarSwatchesCard(produto, 0);
 
   return `
     <article
       class="produto produto-linkavel"
+      data-product-id="${utils.escapeAttribute(produto.id)}"
+      data-active-variation="0"
       data-category="${utils.escapeAttribute(taxonomia.categoria)}"
       data-subcategory="${utils.escapeAttribute(taxonomia.subcategoria)}"
       data-genero="${utils.escapeAttribute(taxonomia.genero)}"
@@ -116,12 +120,108 @@ function criarCardProduto(produto) {
         <p class="preco">${preco}</p>
         <p class="destaque-produto">${destaque}</p>
         <div class="detalhes">${detalhes}</div>
+        ${variacoesMarkup}
         <a class="botao" href="https://wa.me/${utils.WHATSAPP_NUMBER}?text=${mensagem}" target="_blank" rel="noreferrer">
           Comprar no WhatsApp
         </a>
       </div>
     </article>
   `;
+}
+
+function criarSwatchesCard(produto, indiceAtivo) {
+  if (!Array.isArray(produto.variacoes) || produto.variacoes.length <= 1) {
+    return "";
+  }
+
+  const utils = window.CatalogoUtils;
+  const swatches = produto.variacoes
+    .map((variacao, index) => {
+      const ativo = indiceAtivo === index;
+
+      return `
+        <button
+          type="button"
+          class="produto-card-swatch${ativo ? " is-active" : ""}"
+          data-variacao-index="${index}"
+          title="${utils.escapeHtml(variacao.corLabel)}"
+          aria-label="Selecionar cor ${utils.escapeHtml(variacao.corLabel)}"
+          aria-pressed="${ativo}"
+          style="--swatch-color: ${utils.escapeAttribute(variacao.hex)}"
+        ></button>
+      `;
+    })
+    .join("");
+
+  return `
+    <div class="produto-card-variacoes" role="group" aria-label="Cores disponiveis">
+      ${swatches}
+    </div>
+  `;
+}
+
+function configurarVariacoesCard(container, produtos) {
+  const produtosPorId = new Map(produtos.map((produto) => [produto.id, produto]));
+  const cards = [...container.querySelectorAll(".produto[data-product-id]")];
+
+  cards.forEach((card) => {
+    const produto = produtosPorId.get(card.dataset.productId);
+
+    if (!produto || !Array.isArray(produto.variacoes) || produto.variacoes.length <= 1) {
+      return;
+    }
+
+    atualizarVariacaoCard(card, produto, Number(card.dataset.activeVariation || "0"));
+
+    card.querySelectorAll(".produto-card-swatch").forEach((botao) => {
+      botao.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        atualizarVariacaoCard(card, produto, Number(botao.dataset.variacaoIndex || "0"));
+      });
+    });
+  });
+}
+
+function atualizarVariacaoCard(card, produto, indiceVariacao) {
+  const utils = window.CatalogoUtils;
+  const variacao = produto.variacoes[indiceVariacao] || produto.variacoes[0];
+  const imagensCard = utils.resolverImagensCardProduto(produto, variacao);
+  const imagemPrincipal = card.querySelector(".produto-imagem--verso");
+  const imagemHover = card.querySelector(".produto-imagem--frente");
+  const whatsapp = card.querySelector(".botao");
+
+  if (!imagemPrincipal || !imagemHover || !whatsapp) {
+    return;
+  }
+
+  aplicarEstadoImagemCardFallback(imagemPrincipal, imagensCard.principal, imagensCard.hover);
+  aplicarEstadoImagemCardFallback(imagemHover, imagensCard.hover, imagensCard.principal);
+
+  imagemPrincipal.alt = utils.criarAltImagemProduto(produto, variacao, imagensCard.vistaPrincipal);
+  imagemHover.alt = "";
+  imagemHover.setAttribute("aria-hidden", "true");
+
+  utils.registrarFallbackImagem(imagemPrincipal, [
+    imagemPrincipal.dataset.imagePrimary,
+    imagemPrincipal.dataset.imageSecondary
+  ]);
+  utils.registrarFallbackImagem(imagemHover, [
+    imagemHover.dataset.imagePrimary,
+    imagemHover.dataset.imageSecondary
+  ]);
+
+  whatsapp.href = `https://wa.me/${utils.WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    utils.criarMensagemWhatsapp(produto, variacao)
+  )}`;
+
+  card.dataset.activeVariation = String(indiceVariacao);
+
+  card.querySelectorAll(".produto-card-swatch").forEach((botao) => {
+    const ativo = Number(botao.dataset.variacaoIndex || "0") === indiceVariacao;
+    botao.classList.toggle("is-active", ativo);
+    botao.setAttribute("aria-pressed", String(ativo));
+  });
 }
 
 function padronizarCardsFallback(container) {
