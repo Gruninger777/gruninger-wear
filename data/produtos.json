@@ -399,5 +399,51 @@
         ]
       }
     ]
+  },
+  {
+    "id": "camiseta-off-white-urban-street",
+    "nome": "Camiseta Off White Urban Street",
+    "preco": 69.9,
+    "categoria": "camisas",
+    "subcategoria": "street",
+    "destaque": "Estilo urbano e diferenciado",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camiseta Off White Urban Street branca frente",
+    "mensagem": "Olá! Tenho interesse na Camiseta Off White Urban Street. Quais tamanhos estão disponíveis?",
+    "variacoes": [
+      {
+        "cor": "branca",
+        "hex": "#f3f3f3",
+        "imagem_frente": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-frente.jpg"
+          },
+          {
+            "id": "modelo-frente",
+            "label": "Modelo Frente",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-modelo-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-frente.jpg"
+          },
+          {
+            "id": "modelo-verso",
+            "label": "Modelo Verso",
+            "imagem": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-modelo-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/street/camisas-street-off-white-urban-branca-verso.jpg"
+          }
+        ]
+      }
+    ]
   }
 ]
