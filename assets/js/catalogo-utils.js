@@ -16,6 +16,20 @@
     vermelha: "#8b1f1f",
     vermelho: "#8b1f1f"
   };
+  const CARD_IMAGE_RULES = Object.freeze({
+    sports: Object.freeze({
+      principal: "frente",
+      hover: "verso"
+    }),
+    standard: Object.freeze({
+      principal: "verso",
+      hover: "frente"
+    }),
+    fallback: Object.freeze({
+      principal: "frente",
+      hover: "verso"
+    })
+  });
 
   async function carregarProdutos(source) {
     const response = await fetch(source, { cache: "no-store" });
@@ -94,6 +108,79 @@
     };
   }
 
+  function normalizarTaxonomiaValor(valor) {
+    return String(valor || "")
+      .trim()
+      .toLowerCase();
+  }
+
+  function normalizarTaxonomiaProduto(produto) {
+    let categoria = normalizarTaxonomiaValor(produto?.categoria ?? produto?.category);
+    let subcategoria = normalizarTaxonomiaValor(produto?.subcategoria ?? produto?.subcategory);
+    let genero = normalizarTaxonomiaValor(produto?.genero ?? produto?.gender);
+
+    if (categoria === "camisetas-cristas") {
+      categoria = "camisas";
+      subcategoria = "cristas";
+    }
+
+    if (categoria === "camisas" && subcategoria !== "cristas") {
+      genero = "";
+    }
+
+    return {
+      categoria,
+      subcategoria,
+      genero
+    };
+  }
+
+  function normalizarTextoBusca(texto) {
+    return String(texto || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+  }
+
+  function identificarTipoMidiaProduto(origem) {
+    const assinatura = normalizarTextoBusca(
+      Array.isArray(origem)
+        ? origem.filter(Boolean).join(" ")
+        : [
+            origem?.tipo,
+            origem?.id,
+            origem?.label,
+            origem?.imagem,
+            origem?.src,
+            typeof origem === "string" ? origem : ""
+          ]
+            .filter(Boolean)
+            .join(" ")
+    );
+    const temModelo = /(^|[\s/_-])(modelo|manequim)(?=$|[\s/_-])/.test(assinatura);
+    const temVerso = /(^|[\s/_-])(verso|costas|back)(?=$|[\s/_-])/.test(assinatura);
+    const temFrente = /(^|[\s/_-])(frente|front)(?=$|[\s/_-])/.test(assinatura);
+
+    if (temModelo && temVerso) {
+      return "modelo-verso";
+    }
+
+    if (temModelo && temFrente) {
+      return "modelo-frente";
+    }
+
+    if (temVerso) {
+      return "verso";
+    }
+
+    if (temFrente) {
+      return "frente";
+    }
+
+    return "";
+  }
+
   function normalizarGaleria(variacao, produto, imagemFrente, imagemVerso) {
     const origemGaleria =
       (Array.isArray(variacao.galeria) && variacao.galeria.length ? variacao.galeria : null) ||
@@ -105,13 +192,15 @@
           id: "frente",
           label: "Frente",
           imagem: imagemFrente,
-          secundaria: imagemVerso
+          secundaria: imagemVerso,
+          tipo: "frente"
         },
         {
           id: "verso",
           label: "Verso",
           imagem: imagemVerso,
-          secundaria: imagemFrente
+          secundaria: imagemFrente,
+          tipo: "verso"
         }
       ].filter((vista) => vista.imagem);
     }
@@ -136,7 +225,8 @@
           id,
           label,
           imagem,
-          secundaria
+          secundaria,
+          tipo: identificarTipoMidiaProduto({ id, label, imagem })
         };
       })
       .filter((vista) => vista.imagem);
@@ -153,11 +243,141 @@
       .trim()
       .toLowerCase();
 
-    if (vistaSolicitada && galeria.some((vista) => vista.id === vistaSolicitada)) {
-      return vistaSolicitada;
+    if (vistaSolicitada) {
+      const vistaCorrespondente = galeria.find(
+        (vista) => vista.id === vistaSolicitada || vista.tipo === vistaSolicitada
+      );
+
+      if (vistaCorrespondente) {
+        return vistaCorrespondente.id;
+      }
     }
 
     return galeria[0]?.id || "frente";
+  }
+
+  function resolverRegraImagemCard(produto) {
+    const taxonomia = normalizarTaxonomiaProduto(produto);
+    const nome = normalizarTextoBusca(produto?.nome);
+
+    if (taxonomia.subcategoria === "times") {
+      return CARD_IMAGE_RULES.sports;
+    }
+
+    if (taxonomia.categoria === "camisas" || /\bcamis(a|eta)s?\b/.test(nome)) {
+      return CARD_IMAGE_RULES.standard;
+    }
+
+    return CARD_IMAGE_RULES.fallback;
+  }
+
+  function criarVistaVirtual(tipo, variacao) {
+    const imagem =
+      tipo === "frente"
+        ? variacao?.imagemFrente
+        : tipo === "verso"
+          ? variacao?.imagemVerso
+          : "";
+
+    if (!imagem) {
+      return null;
+    }
+
+    return {
+      id: tipo,
+      tipo,
+      label: humanizar(tipo),
+      imagem,
+      secundaria: tipo === "frente" ? variacao?.imagemVerso || imagem : variacao?.imagemFrente || imagem
+    };
+  }
+
+  function encontrarVistaEmColecao(colecao, tipoDesejado, imagemIgnorada = "") {
+    return (
+      (colecao || []).find((vista) => {
+        const tipoVista = vista.tipo || identificarTipoMidiaProduto(vista);
+
+        return (
+          vista.imagem &&
+          vista.imagem !== imagemIgnorada &&
+          (tipoVista === tipoDesejado || vista.id === tipoDesejado)
+        );
+      }) || null
+    );
+  }
+
+  function encontrarVistaPorTipo(variacao, tipoDesejado) {
+    const galeria = Array.isArray(variacao?.galeria) ? variacao.galeria : [];
+    return encontrarVistaEmColecao(galeria, tipoDesejado) || criarVistaVirtual(tipoDesejado, variacao);
+  }
+
+  function encontrarVistaAlternativaCard(variacao, vistaAtual) {
+    const galeria = Array.isArray(variacao?.galeria) ? variacao.galeria : [];
+    const imagemAtual = vistaAtual?.imagem || "";
+
+    return (
+      encontrarVistaEmColecao(galeria, "frente", imagemAtual) ||
+      encontrarVistaEmColecao(galeria, "verso", imagemAtual) ||
+      galeria.find((vista) => vista.imagem && vista.imagem !== imagemAtual) ||
+      null
+    );
+  }
+
+  function resolverImagensCardProduto(produto, variacao) {
+    const regra = resolverRegraImagemCard(produto);
+    const vistaPrincipal =
+      encontrarVistaPorTipo(variacao, regra.principal) ||
+      criarVistaVirtual("frente", variacao) ||
+      criarVistaVirtual("verso", variacao);
+    const vistaHover =
+      encontrarVistaPorTipo(variacao, regra.hover) ||
+      encontrarVistaAlternativaCard(variacao, vistaPrincipal) ||
+      vistaPrincipal;
+
+    return {
+      principal: vistaPrincipal?.imagem || DEFAULT_IMAGE,
+      hover: vistaHover?.imagem || vistaPrincipal?.secundaria || DEFAULT_IMAGE,
+      vistaPrincipal,
+      vistaHover,
+      regra
+    };
+  }
+
+  function resolverImagensCardPorArquivos(produto, arquivos) {
+    const regra = resolverRegraImagemCard(produto);
+    const vistas = [...new Set((arquivos || []).filter(Boolean).map(String))].map((imagem, index) => ({
+      id: `arquivo-${index + 1}`,
+      tipo: identificarTipoMidiaProduto(imagem),
+      label: "",
+      imagem
+    }));
+    const vistaPrincipal = encontrarVistaEmColecao(vistas, regra.principal) || vistas[0] || null;
+    const vistaHover =
+      encontrarVistaEmColecao(vistas, regra.hover, vistaPrincipal?.imagem || "") ||
+      vistas.find((vista) => vista.imagem !== vistaPrincipal?.imagem) ||
+      vistaPrincipal;
+
+    return {
+      principal: vistaPrincipal?.imagem || DEFAULT_IMAGE,
+      hover: vistaHover?.imagem || vistaPrincipal?.imagem || DEFAULT_IMAGE,
+      vistaPrincipal,
+      vistaHover,
+      regra
+    };
+  }
+
+  function criarAltImagemProduto(produto, variacao, vista) {
+    const nome = String(produto?.nome || "Produto").trim();
+    const tipoVista = vista?.tipo || identificarTipoMidiaProduto(vista);
+    const cor =
+      variacao &&
+      variacao.cor &&
+      normalizarTextoBusca(variacao.cor) !== "unica"
+        ? ` ${humanizar(variacao.cor).toLowerCase()}`
+        : "";
+    const vistaTexto = tipoVista ? ` ${humanizar(tipoVista).toLowerCase()}` : "";
+
+    return `${nome}${cor}${vistaTexto}`.trim();
   }
 
   function resolverCor(cor) {
@@ -299,6 +519,12 @@
     DEFAULT_IMAGE,
     carregarProdutos,
     normalizarProduto,
+    normalizarTaxonomiaProduto,
+    identificarTipoMidiaProduto,
+    resolverRegraImagemCard,
+    resolverImagensCardProduto,
+    resolverImagensCardPorArquivos,
+    criarAltImagemProduto,
     criarMensagemWhatsapp,
     obterImagemPrincipal,
     obterImagemHover,

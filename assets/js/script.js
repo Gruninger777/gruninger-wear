@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let filtroAtivo = obterFiltroInicial(filtros);
 
+  padronizarCardsFallback(grid);
   sincronizarFiltrosAtivos(filtros, filtroAtivo);
   prepararImagensProduto(grid);
   aplicarFiltro(grid, filtroAtivo, vazio, labelAtiva, contadorAtivo);
@@ -69,24 +70,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 function criarCardProduto(produto) {
   const utils = window.CatalogoUtils;
   const variacaoPadrao = produto.variacoes[0];
-  const galeria = Array.isArray(variacaoPadrao.galeria) ? variacaoPadrao.galeria : [];
-  const vistaFrente = galeria.find((vista) => vista.id === "frente");
-  const vistaVerso = galeria.find((vista) => vista.id === "verso");
-  const imagemPrimaria = utils.escapeAttribute(
-    vistaFrente?.imagem || galeria[0]?.imagem || utils.obterImagemPrincipal(variacaoPadrao)
-  );
-  const imagemSecundaria = utils.escapeAttribute(
-    vistaVerso?.imagem ||
-      galeria[1]?.imagem ||
-      vistaFrente?.secundaria ||
-      galeria[0]?.secundaria ||
-      utils.obterImagemHover(variacaoPadrao)
-  );
+  const imagensCard = utils.resolverImagensCardProduto(produto, variacaoPadrao);
+  const imagemPrimaria = utils.escapeAttribute(imagensCard.principal);
+  const imagemSecundaria = utils.escapeAttribute(imagensCard.hover);
   const nome = utils.escapeHtml(produto.nome);
   const preco = utils.escapeHtml(produto.precoTexto);
   const destaque = utils.escapeHtml(produto.destaque);
   const detalhes = utils.escapeHtml(produto.detalhes);
-  const alt = utils.escapeHtml(produto.alt || `${produto.nome} ${variacaoPadrao.corLabel}`.trim());
+  const alt = utils.escapeHtml(
+    utils.criarAltImagemProduto(produto, variacaoPadrao, imagensCard.vistaPrincipal)
+  );
   const produtoUrl = utils.escapeAttribute(utils.criarUrlProduto(produto.id));
   const mensagem = encodeURIComponent(utils.criarMensagemWhatsapp(produto, variacaoPadrao));
   const taxonomia = extrairTaxonomiaProduto(produto);
@@ -129,6 +122,49 @@ function criarCardProduto(produto) {
       </div>
     </article>
   `;
+}
+
+function padronizarCardsFallback(container) {
+  const utils = window.CatalogoUtils;
+  const cards = [...container.querySelectorAll(".produto")];
+
+  cards.forEach((card) => {
+    const imagens = [...card.querySelectorAll(".produto-imagem")];
+    const imagemPrincipal = imagens[0];
+    const imagemHover = imagens[1];
+
+    if (!imagemPrincipal || !imagemHover) {
+      return;
+    }
+
+    const taxonomia = extrairTaxonomiaProduto(card.dataset);
+    const titulo = card.querySelector(".info h2")?.textContent?.trim() || "Produto";
+    const imagensCard = utils.resolverImagensCardPorArquivos(taxonomia, [
+      imagemPrincipal.dataset.imagePrimary,
+      imagemPrincipal.dataset.imageSecondary,
+      imagemHover.dataset.imagePrimary,
+      imagemHover.dataset.imageSecondary,
+      imagemPrincipal.currentSrc || imagemPrincipal.src,
+      imagemHover.currentSrc || imagemHover.src
+    ]);
+
+    aplicarEstadoImagemCardFallback(imagemPrincipal, imagensCard.principal, imagensCard.hover);
+    aplicarEstadoImagemCardFallback(imagemHover, imagensCard.hover, imagensCard.principal);
+
+    imagemPrincipal.alt = utils.criarAltImagemProduto(
+      { nome: titulo },
+      null,
+      imagensCard.vistaPrincipal
+    );
+    imagemHover.alt = "";
+    imagemHover.setAttribute("aria-hidden", "true");
+  });
+}
+
+function aplicarEstadoImagemCardFallback(imagem, principal, secundaria) {
+  imagem.src = principal;
+  imagem.dataset.imagePrimary = principal;
+  imagem.dataset.imageSecondary = secundaria;
 }
 
 function configurarFiltros(container, onChange) {
