@@ -41,7 +41,7 @@
     "destaque": "Estilo minimalista premium",
     "detalhes": "Tamanhos: P, M, G, GG",
     "alt": "Camiseta Dragon Minimal branca",
-    "mensagem": "OlÃ¡! Tenho interesse na Camiseta Dragon Minimal. Quais tamanhos estÃ£o disponÃ­veis?",
+    "mensagem": "Olá! Tenho interesse na Camiseta Dragon Minimal. Quais tamanhos estão disponíveis?",
     "variacoes": [
       {
         "cor": "branca",
@@ -72,10 +72,10 @@
     "preco": 69.9,
     "categoria": "camisas",
     "subcategoria": "street",
-    "destaque": "Estilo artÃ­stico e exclusivo",
+    "destaque": "Estilo artístico e exclusivo",
     "detalhes": "Tamanhos: P, M, G, GG",
     "alt": "Camiseta Dual Mask Street bege",
-    "mensagem": "OlÃ¡! Tenho interesse na Camiseta Dual Mask Street. Quais tamanhos estÃ£o disponÃ­veis?",
+    "mensagem": "Olá! Tenho interesse na Camiseta Dual Mask Street. Quais tamanhos estão disponíveis?",
     "variacoes": [
       {
         "cor": "bege",
@@ -109,7 +109,7 @@
     "destaque": "Estilo leve e moderno",
     "detalhes": "Tamanhos: P, M, G, GG",
     "alt": "Camiseta Smile Street preta",
-    "mensagem": "OlÃ¡! Tenho interesse na Camiseta Smile Street. Quais tamanhos estÃ£o disponÃ­veis?",
+    "mensagem": "Olá! Tenho interesse na Camiseta Smile Street. Quais tamanhos estão disponíveis?",
     "variacoes": [
       {
         "cor": "preta",
@@ -136,15 +136,15 @@
   },
   {
     "id": "fe-proposito-street",
-    "nome": "Camiseta FÃ© & PropÃ³sito Street",
+    "nome": "Camiseta Fé & Propósito Street",
     "preco": 69.9,
     "categoria": "camisas",
     "subcategoria": "cristas",
     "genero": "unissex",
     "destaque": "Mensagem forte e inspiradora",
     "detalhes": "Tamanhos: P, M, G, GG",
-    "alt": "Camiseta FÃ© & PropÃ³sito Street preta",
-    "mensagem": "OlÃ¡! Tenho interesse na Camiseta FÃ© & PropÃ³sito Street. Quais tamanhos estÃ£o disponÃ­veis?",
+    "alt": "Camiseta Fé & Propósito Street preta",
+    "mensagem": "Olá! Tenho interesse na Camiseta Fé & Propósito Street. Quais tamanhos estão disponíveis?",
     "variacoes": [
       {
         "cor": "preta",
