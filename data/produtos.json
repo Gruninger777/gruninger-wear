@@ -170,6 +170,57 @@
     ]
   },
   {
+    "id": "camiseta-oversized-proverbios-4-23",
+    "nome": "Camiseta Oversized Prov\u00e9rbios 4:23",
+    "preco": 79.9,
+    "categoria": "camisas",
+    "subcategoria": "cristas",
+    "genero": "unissex",
+    "destaque": "Mensagem crist\u00e3 e visual marcante",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camiseta Oversized Prov\u00e9rbios 4:23 areia verso",
+    "mensagem": "Ol\u00e1! Tenho interesse na Camiseta Oversized Prov\u00e9rbios 4:23. Quais tamanhos est\u00e3o dispon\u00edveis?",
+    "regra_card": {
+      "principal": "verso",
+      "hover": "frente"
+    },
+    "variacoes": [
+      {
+        "cor": "areia",
+        "hex": "#c8b692",
+        "imagem_frente": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-verso.jpg",
+        "vista_inicial": "verso",
+        "galeria": [
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-frente.jpg"
+          },
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-verso.jpg"
+          },
+          {
+            "id": "modelo-frente",
+            "label": "Modelo Frente",
+            "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-modelo-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-frente.jpg"
+          },
+          {
+            "id": "modelo-verso",
+            "label": "Modelo Verso",
+            "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-modelo-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-verso.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "camisa-treino-brasil-itau-guarana",
     "nome": "Camisa Treino Brasil Ita\u00fa Guaran\u00e1",
     "preco": 89.9,
