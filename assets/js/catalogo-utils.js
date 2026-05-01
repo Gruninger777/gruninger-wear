@@ -86,6 +86,11 @@
       descricao: produto.descricao || "Peça disponível no catálogo Grüninger Wear.",
       alt: produto.alt || `${nome} Grüninger Wear`,
       mensagem: produto.mensagem || "",
+      mostrarSwatches:
+        produto.mostrarSwatches === true ||
+        produto.mostrar_swatches === true ||
+        produto.forceSwatches === true ||
+        produto.force_swatches === true,
       regraCard: normalizarRegraCard(produto),
       variacoes: normalizarVariacoes(produto)
     };

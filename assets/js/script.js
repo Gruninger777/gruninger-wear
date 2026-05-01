@@ -130,7 +130,11 @@ function criarCardProduto(produto) {
 }
 
 function criarSwatchesCard(produto, indiceAtivo) {
-  if (!Array.isArray(produto.variacoes) || produto.variacoes.length <= 1) {
+  if (
+    !Array.isArray(produto.variacoes) ||
+    !produto.variacoes.length ||
+    (produto.variacoes.length <= 1 && !produto.mostrarSwatches)
+  ) {
     return "";
   }
 
@@ -167,7 +171,12 @@ function configurarVariacoesCard(container, produtos) {
   cards.forEach((card) => {
     const produto = produtosPorId.get(card.dataset.productId);
 
-    if (!produto || !Array.isArray(produto.variacoes) || produto.variacoes.length <= 1) {
+    if (
+      !produto ||
+      !Array.isArray(produto.variacoes) ||
+      !produto.variacoes.length ||
+      (produto.variacoes.length <= 1 && !produto.mostrarSwatches)
+    ) {
       return;
     }
 

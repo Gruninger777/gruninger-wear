@@ -172,7 +172,7 @@
   {
     "id": "camiseta-oversized-proverbios-4-23",
     "nome": "Camiseta Oversized Prov\u00e9rbios 4:23",
-    "preco": 79.9,
+    "preco": 89.9,
     "categoria": "camisas",
     "subcategoria": "cristas",
     "genero": "unissex",
@@ -215,6 +215,51 @@
             "label": "Modelo Verso",
             "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-modelo-verso.jpg",
             "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-proverbios-4-23-areia-verso.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "camiseta-oversized-jireh-god-provider",
+    "nome": "Camiseta Oversized Jireh God Provider",
+    "preco": 89.9,
+    "categoria": "camisas",
+    "subcategoria": "cristas",
+    "genero": "unissex",
+    "destaque": "Estilo crist\u00e3o clean e oversized",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camiseta Oversized Jireh God Provider areia frente",
+    "mensagem": "Ol\u00e1! Tenho interesse na Camiseta Oversized Jireh God Provider. Quais tamanhos est\u00e3o dispon\u00edveis?",
+    "regra_card": {
+      "principal": "frente",
+      "hover": "verso"
+    },
+    "variacoes": [
+      {
+        "cor": "areia",
+        "hex": "#c8b692",
+        "imagem_frente": "assets/img/produtos/camisas/cristas/camisas-cristas-jireh-god-provider-areia-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/cristas/camisas-cristas-jireh-god-provider-areia-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-jireh-god-provider-areia-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-jireh-god-provider-areia-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-jireh-god-provider-areia-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-jireh-god-provider-areia-frente.jpg"
+          },
+          {
+            "id": "modelo-frente",
+            "label": "Modelo Frente",
+            "imagem": "assets/img/produtos/camisas/cristas/camisas-cristas-jireh-god-provider-areia-modelo-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/cristas/camisas-cristas-jireh-god-provider-areia-frente.jpg"
           }
         ]
       }
@@ -400,6 +445,53 @@
             "label": "Modelo Verso",
             "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-modelo-verso.jpg",
             "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-palm-angels-wings-branca-verso.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "camiseta-oversized-jordan-essential",
+    "nome": "Camiseta Oversized Jordan Essential",
+    "preco": 79.9,
+    "categoria": "camisas",
+    "subcategoria": "oversized",
+    "genero": "unissex",
+    "descricao": "Camiseta oversized minimalista com logo Jordan discreto no peito. Estilo clean e versátil para o dia a dia.",
+    "destaque": "Minimalista, clean e versátil",
+    "detalhes": "Tamanhos: P, M, G, GG",
+    "alt": "Camiseta Oversized Jordan Essential preta frente",
+    "mensagem": "Olá! Tenho interesse na Camiseta Oversized Jordan Essential. Quais tamanhos disponíveis?",
+    "mostrar_swatches": true,
+    "regra_card": {
+      "principal": "frente",
+      "hover": "verso"
+    },
+    "variacoes": [
+      {
+        "cor": "preta",
+        "hex": "#000000",
+        "imagem_frente": "assets/img/produtos/camisas/oversized/camisas-oversized-jordan-essential-preta-frente.jpg",
+        "imagem_verso": "assets/img/produtos/camisas/oversized/camisas-oversized-jordan-essential-preta-verso.jpg",
+        "vista_inicial": "frente",
+        "galeria": [
+          {
+            "id": "frente",
+            "label": "Frente",
+            "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-jordan-essential-preta-frente.jpg",
+            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-jordan-essential-preta-verso.jpg"
+          },
+          {
+            "id": "verso",
+            "label": "Verso",
+            "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-jordan-essential-preta-verso.jpg",
+            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-jordan-essential-preta-frente.jpg"
+          },
+          {
+            "id": "modelo-frente",
+            "label": "Modelo Frente",
+            "imagem": "assets/img/produtos/camisas/oversized/camisas-oversized-jordan-essential-preta-modelo.jpg",
+            "secundaria": "assets/img/produtos/camisas/oversized/camisas-oversized-jordan-essential-preta-frente.jpg"
           }
         ]
       }

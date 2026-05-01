@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     function renderizarSwatches() {
-      if (produto.variacoes.length <= 1) {
+      if (produto.variacoes.length <= 1 && !produto.mostrarSwatches) {
         variacoes.hidden = true;
         return;
       }
